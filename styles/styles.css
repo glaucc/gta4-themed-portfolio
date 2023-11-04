@@ -8,7 +8,7 @@
     height: 100vh;
     margin-top: 8vw;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     border: 20px solid black;
 }
 
@@ -48,15 +48,16 @@
     animation: bgmove 21s infinite linear;
     opacity: 1;
     transition: opacity 0.5s;
+    height: 100vh;
   }
 
   
   @keyframes bgmove {
     0% {
-      background-position: 10% 100%; /* Start from top left */
+      background-position: 10% 50%; /* Start from top left */
     }
     100% {
-      background-position: 40% 150%; /* Move to the bottom right corner */
+      background-position: 40% 100%; /* Move to the bottom right corner */
     }
   }
 

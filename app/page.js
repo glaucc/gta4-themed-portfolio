@@ -1,17 +1,26 @@
 'use client';
 
 import '../styles/styles.css'; // Import your CSS file with the necessary styles
+
 import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
 import figure2 from '../public/assets/img/figure3.png';
+
+import music from '../public/assets/music/gta4-music.mp3'
 
 
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Sound from 'react-sound';
 
 
-export default function Home() {
+export default function Home(
+  handleSongPlaying,
+  handleSongLoading,
+  handleSongFinishedPlaying
+) {
   const [imageState, setImageState] = useState(1);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const container = document.querySelector('.container');
@@ -27,12 +36,8 @@ export default function Home() {
       const toggleImages = () => {
         if (imageState === 1) {
           setImageState(2);
-          console.log('imageState set to 2');
-          console.log(imageState);
         } else {
           setImageState(1);
-          console.log('imageState set to 1');
-          console.log(imageState);
         }
       };
   
@@ -41,8 +46,6 @@ export default function Home() {
         nico.style.opacity = 0;
         setTimeout(() => {
           toggleImages();
-          console.log('setTimeout');
-          console.log(imageState);
   
           container.style.opacity = 1;
           nico.style.opacity = 1;
@@ -112,7 +115,25 @@ export default function Home() {
 
         </div>
 
+        {/* End of content with animated figure and background image */}
+
+       <Sound 
+        url={music}
+        playStatus={
+          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
+        }
+        playFromPosition={0}
+        onLoading={handleSongLoading}
+        onPlaying={handleSongPlaying}
+        onFinishedPlaying={handleSongFinishedPlaying}
+        loop={true}
+       />
+       <button onClick={() => setIsPlaying(!isPlaying)}>
+        {!isPlaying ? 'Play' : 'Stop'}
+       </button>
+
       </div>
     </div>
+
   );
 }

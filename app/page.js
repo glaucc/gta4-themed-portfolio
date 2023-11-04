@@ -5,13 +5,11 @@ import '../styles/styles.css'; // Import your CSS file with the necessary styles
 import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
 import figure2 from '../public/assets/img/figure3.png';
 
-import music from '../public/assets/music/gta4-music.mp3'
 
 
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import Sound from 'react-sound';
 
 
 export default function Home(
@@ -20,7 +18,8 @@ export default function Home(
   handleSongFinishedPlaying
 ) {
   const [imageState, setImageState] = useState(1);
-  const [isPlaying, setIsPlaying] = useState(false);
+
+  
 
   useEffect(() => {
     const container = document.querySelector('.container');
@@ -117,20 +116,16 @@ export default function Home(
 
         {/* End of content with animated figure and background image */}
 
-       <Sound 
-        url={music}
-        playStatus={
-          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
-        }
-        playFromPosition={0}
-        onLoading={handleSongLoading}
-        onPlaying={handleSongPlaying}
-        onFinishedPlaying={handleSongFinishedPlaying}
-        loop={true}
-       />
-       <button onClick={() => setIsPlaying(!isPlaying)}>
-        {!isPlaying ? 'Play' : 'Stop'}
-       </button>
+
+        <div>
+          
+            <audio className='gta-audio' controls autoPlay>
+              <source src='/assets/music/gta4-theme.mp3#t=00:00:00' type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          
+        </div>
+       
 
       </div>
     </div>

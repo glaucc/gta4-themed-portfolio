@@ -44,10 +44,10 @@
 
   .with-background-image {
     /* other styles */
-    background: url('/assets/img/gta4-bg.jpg') no-repeat 10% 80%;
-    animation: bgmove 12s infinite linear;
+    background: url('/assets/img/gta4-bg.jpg') repeat 10% 80%;
+    animation: bgmove 21s infinite linear;
     opacity: 1;
-    transition: opacity 2s;
+    transition: opacity 0.5s;
   }
 
   
@@ -67,13 +67,22 @@
     overflow:hidden;
 }
 
-.figureImg {
+.figureImg1 {
     position: relative;
     bottom: 5vh;
     left: 15%;
-    animation: movenico 15s linear;
+    animation: movenico 20s linear infinite;
     opacity: 1;
-    transition: opacity 2s;
+    transition: opacity 0.5s;
+}
+
+.figureImg2 {
+    position: relative;
+    bottom: -25vh;
+    left: 15%;
+    animation: movenico2 20s linear infinite;
+    opacity: 1;
+    transition: opacity 0.5s;
 }
 
 @keyframes movenico {
@@ -85,5 +94,17 @@
       /* Set the final position for nico's animation */
       bottom: 20vh;
       left: -5%;
+    }
+  }
+
+  @keyframes movenico2 {
+    0% {
+        bottom: -15vh;
+        left: 15%;
+    }
+    100% {
+      /* Set the final position for nico's animation */
+      bottom: 10vh;
+      left: -15%;
     }
   }

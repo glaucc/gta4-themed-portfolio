@@ -2,7 +2,7 @@
 
 import '../styles/styles.css'; // Import your CSS file with the necessary styles
 import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
-import figure2 from '../public/assets/img/figure2.png';
+import figure2 from '../public/assets/img/figure3.png';
 
 
 import Head from 'next/head';
@@ -11,31 +11,52 @@ import { useState, useEffect } from 'react';
 
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [showSecondImage, setShowSecondImage] = useState(false);
+  const [imageState, setImageState] = useState(1);
 
   useEffect(() => {
     const container = document.querySelector('.container');
     const nico = document.querySelector('.nico');
-
+    let intervalId;
+  
     if (container && nico) {
       container.style.transition = 'opacity 0.5s';
       container.style.opacity = 1;
       nico.style.transition = 'opacity 0.5s';
       nico.style.opacity = 1;
-
-      setTimeout(() => {
+  
+      const toggleImages = () => {
+        if (imageState === 1) {
+          setImageState(2);
+          console.log('imageState set to 2');
+          console.log(imageState);
+        } else {
+          setImageState(1);
+          console.log('imageState set to 1');
+          console.log(imageState);
+        }
+      };
+  
+      intervalId = setInterval(() => {
         container.style.opacity = 0;
         nico.style.opacity = 0;
         setTimeout(() => {
-          // Change the nico image
-          setShowSecondImage(true);
+          toggleImages();
+          console.log('setTimeout');
+          console.log(imageState);
+  
           container.style.opacity = 1;
           nico.style.opacity = 1;
-        }, 500);
+  
+          clearInterval(intervalId); // Clear the interval to stop the looping
+        }, 5000);
       }, 5000);
     }
-  }, []);
+
+    return () => {
+      clearInterval(intervalId); // Cleanup the interval on component unmount
+    };
+  }, [imageState]);
+
 
 
 
@@ -78,7 +99,11 @@ export default function Home() {
 
 
           <div className="nico">
-            <Image className='figureImg' width={700} height={700} src={figure1} alt='Jofevn' />
+            {imageState == '2' ? (
+                <Image className='figureImg2' width={700} height={700} src={figure2} alt='Jofevn' />
+              ) : (
+                <Image className='figureImg1' width={700} height={700} src={figure1} alt='Jofevn' />
+              )}
           </div>
 
 

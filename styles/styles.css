@@ -3,7 +3,9 @@
     font-family: 'PricedownBL';
     src: url('/assets/fonts/pricedown-bl.otf') format('opentype');
   }
-  
+
+
+
 .container  {
     height: 100vh;
     margin-top: 8vw;
@@ -109,3 +111,18 @@
       left: -15%;
     }
   }
+
+.musicPlayer {
+  position: fixed;
+  left: 84%;
+  bottom: 90%;
+  z-index: 1;
+}
+
+.links {
+  transition: letter-spacing 0.5s;
+}
+
+.links:hover {
+  letter-spacing: 0.7rem;
+}

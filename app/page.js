@@ -5,16 +5,26 @@ import '../styles/styles.css'; // Import your CSS file with the necessary styles
 import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
 import figure2 from '../public/assets/img/figure3.png';
 
-
+const audioUrl = "/assets/music/gta4-theme.mp3";
 
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import MusicPlayer from '@/components/MusicPlayer';
+import { Music } from 'lucide-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
 
 
 export default function Home() {
   const [imageState, setImageState] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  }
 
   useEffect(() => {
     let intervalId;
@@ -65,6 +75,11 @@ export default function Home() {
     };
   }, [isLoading, imageState]);
 
+  // const handleMusic = () => {
+  //   return (
+  //     console.log("CLicked Bruv")
+  //   )
+  // }
 
 
   return (
@@ -79,15 +94,35 @@ export default function Home() {
         <div className="flex items-center">
           {/* <img src="/path_to_your_logo/logo.png" alt="Logo" className="h-8 mr-2" /> */}
           <nav className="flex items-center">
-            <h6 className="gta-text mx-6 text-white">Github</h6>
-            <h6 className="gta-text mx-6 text-white">Linkedin</h6>
-            <h6 className="gta-text mx-6 text-white">Work</h6>
-            <h6 className="gta-text mx-6 text-white">Projects</h6>
-            <h6 className="gta-text mx-6 text-white">About</h6>
-            <h6 className="gta-text mx-6 text-white">Contact</h6>
+            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Github</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Linkedin</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Work</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Projects</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>About</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Contact</Link></h6>
           </nav>
         </div>
       </div>
+
+      {/* Music Player */}
+
+      <div className='musicPlayer flex'>
+                  <Popover>
+                    <PopoverTrigger>
+                      <Button variant='outline' className='hover:bg-gray-300'>
+                      <Music color='black' onClick={togglePopup} />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-80">
+
+                    </PopoverContent>
+                  </Popover>
+                  {isPopupOpen && (
+                    <div>Salam</div>
+                  )}
+      </div>
+
+
       {isLoading ? (
         <div className="gta-text mx-6 text-white">Loading...</div>
       ) : (
@@ -120,10 +155,14 @@ export default function Home() {
        
        <div>
             <audio className="gta-audio" loop controls autoPlay={true} preload='auto'>
-              <source src="/assets/music/gta4-theme.mp3#t=00:00:00" type="audio/mpeg" />
+              <source src={audioUrl} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
       </div>
+
+      {/* <MusicPlayer /> */}
+
+      
 
     </div>
 

@@ -79,8 +79,8 @@ export default function Home() {
         <div className="flex items-center">
           {/* <img src="/path_to_your_logo/logo.png" alt="Logo" className="h-8 mr-2" /> */}
           <nav className="flex items-center">
-            <h6 className="gta-text mx-6 text-white">Link 1</h6>
-            <h6 className="gta-text mx-6 text-white">Link 2</h6>
+            <h6 className="gta-text mx-6 text-white">Github</h6>
+            <h6 className="gta-text mx-6 text-white">Linkedin</h6>
             <h6 className="gta-text mx-6 text-white">Work</h6>
             <h6 className="gta-text mx-6 text-white">Projects</h6>
             <h6 className="gta-text mx-6 text-white">About</h6>
@@ -89,7 +89,7 @@ export default function Home() {
         </div>
       </div>
       {isLoading ? (
-        <div className="text-white">Loading...</div>
+        <div className="gta-text mx-6 text-white">Loading...</div>
       ) : (
         <div className="container">
           <div className="content with-background-image">
@@ -115,14 +115,16 @@ export default function Home() {
           
         </div>
       )}
+
+      {/* Gta Theme Audio */}
        
        <div>
-            <audio className="gta-audio" controls autoPlay>
+            <audio className="gta-audio" loop controls autoPlay={true} preload='auto'>
               <source src="/assets/music/gta4-theme.mp3#t=00:00:00" type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
       </div>
-      
+
     </div>
 
   );

@@ -1,0 +1,58 @@
+/* public/styles.css */
+@font-face {
+    font-family: 'PricedownBL';
+    src: url('/assets/fonts/pricedown-bl.otf') format('opentype');
+  }
+  
+.container  {
+    height: 100vh;
+    margin-top: 8vw;
+    position: relative;
+    overflow: hidden;
+    border: 20px solid black;
+}
+
+  .gta-text {
+    font-family: 'PricedownBL', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  
+  .gta-intro-text {
+    font-family: 'PricedownBL', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    color: black;
+  }
+
+  .intro-texts, .intro {
+    display: flex;
+    height: 100%;
+  }
+
+  .intro-texts {
+    flex-direction: column;
+    margin-top: 4rem;
+  }
+
+  .with-background-image {
+    background-image: url('/assets/img/gta4-bg.jpg');
+    background-size: cover;
+    height: calc(100% - 40px); /* Adjust the height to account for the border */
+    background-position: center;
+    z-index: -1;
+  }
+
+.figureImg {
+    position: absolute;
+    bottom: -40px;
+    left: 27%;
+    transition: bottom 5s linear, left 5s linear;
+}

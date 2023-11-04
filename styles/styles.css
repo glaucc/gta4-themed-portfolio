@@ -43,16 +43,47 @@
   }
 
   .with-background-image {
-    background-image: url('/assets/img/gta4-bg.jpg');
-    background-size: cover;
-    height: calc(100% - 40px); /* Adjust the height to account for the border */
-    background-position: center;
-    z-index: -1;
+    /* other styles */
+    background: url('/assets/img/gta4-bg.jpg') no-repeat 10% 80%;
+    animation: bgmove 12s infinite linear;
+    opacity: 1;
+    transition: opacity 2s;
   }
 
-.figureImg {
-    position: absolute;
-    bottom: -40px;
-    left: 27%;
-    transition: bottom 5s linear, left 5s linear;
+  
+  @keyframes bgmove {
+    0% {
+      background-position: 10% 100%; /* Start from top left */
+    }
+    100% {
+      background-position: 40% 150%; /* Move to the bottom right corner */
+    }
+  }
+
+
+
+.intro {
+    position:relative; 
+    overflow:hidden;
 }
+
+.figureImg {
+    position: relative;
+    bottom: 5vh;
+    left: 15%;
+    animation: movenico 15s linear;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+@keyframes movenico {
+    0% {
+        bottom: 5vh;
+        left: 15%;
+    }
+    100% {
+      /* Set the final position for nico's animation */
+      bottom: 20vh;
+      left: -5%;
+    }
+  }

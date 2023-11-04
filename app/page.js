@@ -1,45 +1,42 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import '../styles/styles.css'; // Import your CSS file with the necessary styles
+import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
+import figure2 from '../public/assets/img/figure2.png';
+
+
 import Head from 'next/head';
 import Image from 'next/image';
-import figure from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
+import { useState, useEffect } from 'react';
+
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showSecondImage, setShowSecondImage] = useState(false);
 
   useEffect(() => {
     const container = document.querySelector('.container');
     const nico = document.querySelector('.nico');
 
     if (container && nico) {
-      // Fading in the container element
-      container.style.opacity = 0;
-      const fadeInContainer = () => {
-        container.style.transition = 'opacity 0.3s';
-        container.style.opacity = 1;
-      };
-      setTimeout(fadeInContainer, 300);
-
-      // Fading in and animating the nico element
+      container.style.transition = 'opacity 0.5s';
+      container.style.opacity = 1;
+      nico.style.transition = 'opacity 0.5s';
       nico.style.opacity = 1;
-      let counter = 0;
-      const moveNico = setInterval(() => {
-        if (counter >= 100) {
-          clearInterval(moveNico);
-        } else {
-          nico.style.bottom = `${-40 + counter * 0.2}px`;
-          nico.style.left = `${27 + counter * 0.05}%`;
-          counter++;
-        }
-      }, 50); // Move every 50 milliseconds
 
       setTimeout(() => {
+        container.style.opacity = 0;
         nico.style.opacity = 0;
-      }, 5000); // Fade out after 5 seconds
+        setTimeout(() => {
+          // Change the nico image
+          setShowSecondImage(true);
+          container.style.opacity = 1;
+          nico.style.opacity = 1;
+        }, 500);
+      }, 5000);
     }
   }, []);
+
 
 
   return (
@@ -71,25 +68,22 @@ export default function Home() {
         
         <div className="content with-background-image">
           {/* Your component content here */}
+          
+          
           <div className='intro'>
             <div className='intro-texts'>
           <h6 className="gta-intro-text gta-intro-text1 mx-6 text-white">Represents</h6>
           <h6 className="gta-intro-text gta-intro-text2 mx-6 text-white">Jofevn Studios</h6>
             </div>
-          </div>
+
 
           <div className="nico">
-            {/* Use Image component for lazy loading */}
-            <div className="figureImg" style={{ position: 'relative', paddingBottom: '100%' }}>
-              <Image
-                src={figure}
-                alt="Jofevn"
-                // layout="fill"
-                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                loading="lazy"
-              />
-              </div>
+            <Image className='figureImg' width={700} height={700} src={figure1} alt='Jofevn' />
           </div>
+
+
+          </div>
+          
 
         </div>
 

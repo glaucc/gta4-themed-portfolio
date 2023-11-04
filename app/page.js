@@ -12,26 +12,32 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 
-export default function Home(
-  handleSongPlaying,
-  handleSongLoading,
-  handleSongFinishedPlaying
-) {
+export default function Home() {
   const [imageState, setImageState] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
-  
+  useEffect(() => {
+    let intervalId;
+    intervalId = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+
+    return () => {
+      clearTimeout(intervalId); // Clear the timeout on component unmount
+    };
+  }, []);
 
   useEffect(() => {
     const container = document.querySelector('.container');
     const nico = document.querySelector('.nico');
     let intervalId;
-  
-    if (container && nico) {
+
+    if (!isLoading && container && nico) {
       container.style.transition = 'opacity 0.5s';
       container.style.opacity = 1;
       nico.style.transition = 'opacity 0.5s';
       nico.style.opacity = 1;
-  
+
       const toggleImages = () => {
         if (imageState === 1) {
           setImageState(2);
@@ -39,16 +45,16 @@ export default function Home(
           setImageState(1);
         }
       };
-  
+
       intervalId = setInterval(() => {
         container.style.opacity = 0;
         nico.style.opacity = 0;
         setTimeout(() => {
           toggleImages();
-  
+
           container.style.opacity = 1;
           nico.style.opacity = 1;
-  
+
           clearInterval(intervalId); // Clear the interval to stop the looping
         }, 5000);
       }, 5000);
@@ -57,8 +63,7 @@ export default function Home(
     return () => {
       clearInterval(intervalId); // Cleanup the interval on component unmount
     };
-  }, [imageState]);
-
+  }, [isLoading, imageState]);
 
 
 
@@ -83,51 +88,41 @@ export default function Home(
           </nav>
         </div>
       </div>
-      {/* <audio controls className="mt-4">
-        <source src="/assets/music/GTA-4-Loading-Screen-Theme.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio> */}
-      <div className="container">
-        
-        <div className="content with-background-image">
-          {/* Your component content here */}
-          
-          
-          <div className='intro'>
-            <div className='intro-texts'>
-          <h6 className="gta-intro-text gta-intro-text1 mx-6 text-white">Represents</h6>
-          <h6 className="gta-intro-text gta-intro-text2 mx-6 text-white">Jofevn Studios</h6>
+      {isLoading ? (
+        <div className="text-white">Loading...</div>
+      ) : (
+        <div className="container">
+          <div className="content with-background-image">
+            {/* Your component content here */}
+            <div className="intro">
+              <div className="intro-texts">
+                <h6 className="gta-intro-text gta-intro-text1 mx-6 text-white">Represents</h6>
+                <h6 className="gta-intro-text gta-intro-text2 mx-6 text-white">Jofevn Studios</h6>
+              </div>
+
+              <div className="nico">
+                {imageState === 2 ? (
+                  <Image className="figureImg2" width={700} height={700} src={figure2} alt="Jofevn" />
+                ) : (
+                  <Image className="figureImg1" width={700} height={700} src={figure1} alt="Jofevn" />
+                )}
+              </div>
             </div>
-
-
-          <div className="nico">
-            {imageState == '2' ? (
-                <Image className='figureImg2' width={700} height={700} src={figure2} alt='Jofevn' />
-              ) : (
-                <Image className='figureImg1' width={700} height={700} src={figure1} alt='Jofevn' />
-              )}
           </div>
 
+          {/* End of content with animated figure and background image */}
 
-          </div>
           
-
         </div>
-
-        {/* End of content with animated figure and background image */}
-
-
-        <div>
-          
-            <audio className='gta-audio' controls autoPlay>
-              <source src='/assets/music/gta4-theme.mp3#t=00:00:00' type="audio/mpeg" />
+      )}
+       
+       <div>
+            <audio className="gta-audio" controls autoPlay>
+              <source src="/assets/music/gta4-theme.mp3#t=00:00:00" type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
-          
-        </div>
-       
-
       </div>
+      
     </div>
 
   );

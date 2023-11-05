@@ -11,16 +11,18 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import MusicPlayer from '@/components/MusicPlayer';
+
 import { Music } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
 
 
 export default function Home() {
   const [imageState, setImageState] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [progress, setProgress] = useState(13)
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -75,6 +77,12 @@ export default function Home() {
     };
   }, [isLoading, imageState]);
 
+
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(66), 1500)
+    return () => clearTimeout(timer)
+  }, [])
+
   // const handleMusic = () => {
   //   return (
   //     console.log("CLicked Bruv")
@@ -95,7 +103,7 @@ export default function Home() {
           {/* <img src="/path_to_your_logo/logo.png" alt="Logo" className="h-8 mr-2" /> */}
           <nav className="flex items-center">
             <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Github</Link></h6>
-            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Linkedin</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link href='https://www.linkedin.com/in/yusif-ahmedov/'>Linkedin</Link></h6>
             <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Work</Link></h6>
             <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Projects</Link></h6>
             <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>About</Link></h6>
@@ -113,8 +121,12 @@ export default function Home() {
                       <Music color='black' onClick={togglePopup} />
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-80">
+                    <PopoverContent className="w-80 h-80">
+                    <div className="gap-4">
+                        <div className='background-block border-2 border-solid border-gray-400 rounded p-4'>
 
+                        </div>
+                      </div>
                     </PopoverContent>
                   </Popover>
                   {isPopupOpen && (
@@ -124,7 +136,10 @@ export default function Home() {
 
 
       {isLoading ? (
+        <>
         <div className="gta-text mx-6 text-white">Loading...</div>
+        <Progress value={progress} className="w-[20%]" />
+        </>
       ) : (
         <div className="container">
           <div className="content with-background-image">

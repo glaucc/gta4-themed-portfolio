@@ -7,8 +7,9 @@
 
 
 .container  {
-    height: 100vh;
+    height: 100%;
     margin-top: 8vw;
+    /* max-width: 70%; */
     position: relative;
     /* overflow: hidden; */
     border: 20px solid black;
@@ -50,18 +51,18 @@
     animation: bgmove 10s infinite linear;
     opacity: 1;
     transition: opacity 0.5s;
-    height: 100vh;
+    height: 90vh;
   }
 
   
   @keyframes bgmove {
     0% {
       background-position: 20% 50%;
-      transform: scale(1,1); /* Start from top left */
+      /* transform: scale(1,1); Start from top left */
     }
     100% {
       background-position: 40% 100%; /* Move to the bottom right corner */
-      transform: scale(1.5,1,5);
+      /* transform: scale(1.1,1.1); */
     }
   }
 
@@ -74,7 +75,7 @@
 
 .figureImg1 {
     position: relative;
-    bottom: -25vh;
+    bottom: 5vh;
     left: 15%;
     animation: movenico 40s linear infinite;
     opacity: 1;
@@ -83,7 +84,7 @@
 
 .figureImg2 {
     position: relative;
-    bottom: -18vh;
+    bottom: 12vh;
     left: 15%;
     animation: movenico2 40s linear infinite;
     opacity: 1;
@@ -92,25 +93,29 @@
 
 @keyframes movenico {
     0% {
-        bottom: -25vh;
+        bottom: 5vh;
         left: 15%;
+        transform: scale(1,1);
     }
     100% {
       /* Set the final position for nico's animation */
-      bottom: 0vh;
+      bottom: 15vh;
       left: -5%;
+      transform: scale(1.2,1.2);
     }
   }
 
   @keyframes movenico2 {
     0% {
-        bottom: -18vh;
+        bottom: 12vh;
         left: 15%;
+        transform: scale(1,1);
     }
     100% {
       /* Set the final position for nico's animation */
-      bottom: 10vh;
+      bottom: 22vh;
       left: -25%;
+      transform: scale(1.2,1.2);
     }
   }
 

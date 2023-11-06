@@ -178,9 +178,7 @@ export default function Home() {
                       </div>
                     </PopoverContent>
                   </Popover>
-                  {isPopupOpen && (
-                    <div>Salam</div>
-                  )}
+                  
       </div>
 
 

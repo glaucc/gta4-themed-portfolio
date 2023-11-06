@@ -119,6 +119,10 @@
     }
   }
 
+.bg-image-container {
+  min-height: 90vh;
+}
+
 .musicPlayer {
   position: fixed;
   left: 68%;
@@ -156,3 +160,13 @@ music-icons:hover {
   color: gray;
 }
 
+
+/* Introduction */
+
+.introduction-main {
+  height: 100vh;
+}
+
+.int-header {
+  font-size: 3rem;
+}

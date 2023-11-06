@@ -189,6 +189,7 @@ export default function Home() {
         </>
       ) : (
         <div className="container">
+          <div className='bg-image-container'>
           <div className="content with-background-image">
             {/* Your component content here */}
             <div className="intro">
@@ -206,6 +207,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </div>
+
 
           {/* End of content with animated figure and background image */}
 
@@ -222,9 +225,30 @@ export default function Home() {
             </audio>
       </div>
 
-      {/* <MusicPlayer /> */}
+    {/* Introfuction */}
+      
+      <div className='introduction-main'>
+        <div className='int-img'></div>
+          <div className='int-text-sec'>
+            <div className='int-header gta-text'>Hello There👋</div>
+            <div className='int-text1'></div>
+            <div className='int-text2'></div>
+          </div>
+        </div>
 
       
+
+      <div className='experience-main'>
+
+      </div>
+
+      <div className='projects-main'>
+
+      </div>
+
+      <div className='projects-contact'>
+
+      </div>
 
     </div>
 

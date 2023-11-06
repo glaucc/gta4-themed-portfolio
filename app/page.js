@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import useSound from "use-sound"; 
 
-import { ArrowRight, MoveRight, Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
+import { ArrowRight, Medal, MoveRight, Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -243,7 +243,7 @@ export default function Home() {
       </div>
 
       <div className='projects-main'>
-
+          <Medal />
       </div>
 
       <div className='projects-contact'>

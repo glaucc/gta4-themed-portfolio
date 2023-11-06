@@ -48,6 +48,10 @@ export default function Home() {
   }
 
   useEffect(() => {
+   setIsPlaying(false) ? setIsPlaying(true) : setIsPlaying(false) 
+  }, [])
+
+  useEffect(() => {
     let intervalId;
     intervalId = setTimeout(() => {
       setIsLoading(false);

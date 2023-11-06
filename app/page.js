@@ -4,6 +4,7 @@ import '../styles/styles.css'; // Import your CSS file with the necessary styles
 
 import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
 import figure2 from '../public/assets/img/figure3.png';
+import gtaPoster from '../public/assets/img/gtaposter.jpg'
 
 const audioUrl = "/assets/music/gta4-theme.mp3";
 
@@ -11,8 +12,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import useSound from "use-sound"; 
 
-import { Music } from 'lucide-react';
+import { Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -23,6 +25,23 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [progress, setProgress] = useState(13)
+  const [isPlaying, setIsPlaying] = useState(true)
+
+  const [play, { pause, duration, sound }] = useSound(audioUrl);
+
+  const playingButton = () => {
+    if (isPlaying) {
+      pause(); // this will pause the audio
+      setIsPlaying(false);
+    } else {
+      play(); // this will play the audio
+      setIsPlaying(true);
+    }
+  };
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying)
+  }
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -121,10 +140,21 @@ export default function Home() {
                       <Music color='black' onClick={togglePopup} />
                       </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-80 h-80">
+                    <PopoverContent className="poster-popup w-80">
                     <div className="gap-4">
-                        <div className='background-block border-2 border-solid border-gray-400 rounded p-4'>
+                        <div className='background-block rounded p-4 h-4/6'>
+                        <Image className="music-poster" width={300} height={300} src={gtaPoster} alt="Jofevn" />
+                        <div className='play-icons mt-6 ml-8'>
 
+                        <SkipBack size={50} className='mr-4'/>
+                        
+                        {isPlaying ?
+                        <Pause size={50} className='mr-4' onClick={playingButton}/>  :
+                        <Play size={50} className='mr-4' onClick={playingButton}/>}
+
+                      <SkipForward size={50} className='mr-4'/>
+
+                      </div>
                         </div>
                       </div>
                     </PopoverContent>
@@ -169,7 +199,7 @@ export default function Home() {
       {/* Gta Theme Audio */}
        
        <div>
-            <audio className="gta-audio" loop controls autoPlay={true} preload='auto'>
+            <audio className="gta-audio" loop controls autoPlay preload='auto'>
               <source src={audioUrl} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>

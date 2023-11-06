@@ -126,3 +126,20 @@
 .links:hover {
   letter-spacing: 0.7rem;
 }
+
+/* .background-block { */
+  /* height: 100%; */
+/* } */
+
+.poster-popup {
+  height: 28rem;
+}
+
+.play-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.gta-audio {
+  display: none;
+}

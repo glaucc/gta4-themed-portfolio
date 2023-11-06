@@ -3,7 +3,7 @@
 import '../styles/styles.css'; // Import your CSS file with the necessary styles
 
 import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
-import figure2 from '../public/assets/img/figure3.png';
+import figure2 from '../public/assets/img/bald.png';
 import gtaPoster from '../public/assets/img/gtaposter.jpg'
 
 const audioUrl = "/assets/music/gta4-theme.mp3";
@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import useSound from "use-sound"; 
 
-import { Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
+import { ArrowRight, MoveRight, Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -25,7 +25,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [progress, setProgress] = useState(13)
-  const [isPlaying, setIsPlaying] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [hasClicked, setHasClicked] = useState(false); // New state to track whether the button has been clicked
+  
 
   const [play, { pause, duration, sound }] = useSound(audioUrl);
 
@@ -47,9 +49,11 @@ export default function Home() {
     setIsPopupOpen(!isPopupOpen);
   }
 
-  useEffect(() => {
-   setIsPlaying(false) ? setIsPlaying(true) : setIsPlaying(false) 
-  }, [])
+  const handleStartAudio = () => {
+    play();
+    setHasClicked(true);
+  };
+
 
   useEffect(() => {
     let intervalId;
@@ -137,12 +141,23 @@ export default function Home() {
 
       {/* Music Player */}
 
-      <div className='musicPlayer flex'>
+      <div className='musicPlayer flex w-[440px]'>
+
+        
+                    <div className='gta-text flex flex-row items-center h-10 min-w-full firstplay-text'>
+
+                    {!hasClicked && (
+                      <div className='flex items-center first-play'>
+                      <p className="text-white mr-2">First Play the music </p> <MoveRight size={32} className='mr-6'/>
+                      </div>)}
+                    </div>
                   <Popover>
                     <PopoverTrigger>
+                      <div>
                       <Button variant='outline' className='hover:bg-gray-300'>
                       <Music color='black' onClick={togglePopup} />
                       </Button>
+                      </div>
                     </PopoverTrigger>
                     <PopoverContent className="poster-popup w-80">
                     <div className="gap-4">
@@ -150,13 +165,13 @@ export default function Home() {
                         <Image className="music-poster" width={300} height={300} src={gtaPoster} alt="Jofevn" />
                         <div className='play-icons mt-6 ml-8'>
 
-                        <SkipBack size={50} className='mr-4'/>
+                        <SkipBack size={50} className='mr-4 cursor-pointer music-icons'/>
                         
                         {isPlaying ?
-                        <Pause size={50} className='mr-4' onClick={playingButton}/>  :
-                        <Play size={50} className='mr-4' onClick={playingButton}/>}
+                        <Pause size={50} className='mr-4 cursor-pointer music-icons' onClick={playingButton}/>  :
+                        <Play size={50} className='mr-4 cursor-pointer music-icons' onClick={playingButton}/>}
 
-                      <SkipForward size={50} className='mr-4'/>
+                      <SkipForward size={50} className='mr-4 cursor-pointer music-icons'/>
 
                       </div>
                         </div>
@@ -186,7 +201,7 @@ export default function Home() {
 
               <div className="nico">
                 {imageState === 2 ? (
-                  <Image className="figureImg2" width={700} height={700} src={figure2} alt="Jofevn" />
+                  <Image className="figureImg2" width={1000} height={1000} src={figure2} alt="Jofevn" />
                 ) : (
                   <Image className="figureImg1" width={700} height={700} src={figure1} alt="Jofevn" />
                 )}

@@ -46,8 +46,8 @@
 
   .with-background-image {
     /* other styles */
-    background: url('/assets/img/gta4-bg.jpg') repeat 10% 80%;
-    animation: bgmove 21s infinite linear;
+    background: url('/assets/img/gta4-bg.jpg') repeat 20% 80%;
+    animation: bgmove 10s infinite linear;
     opacity: 1;
     transition: opacity 0.5s;
     height: 100vh;
@@ -56,10 +56,12 @@
   
   @keyframes bgmove {
     0% {
-      background-position: 10% 50%; /* Start from top left */
+      background-position: 20% 50%;
+      transform: scale(1,1); /* Start from top left */
     }
     100% {
       background-position: 40% 100%; /* Move to the bottom right corner */
+      transform: scale(1.5,1,5);
     }
   }
 
@@ -72,50 +74,50 @@
 
 .figureImg1 {
     position: relative;
-    bottom: 5vh;
+    bottom: -25vh;
     left: 15%;
-    animation: movenico 20s linear infinite;
+    animation: movenico 40s linear infinite;
     opacity: 1;
     transition: opacity 0.5s;
 }
 
 .figureImg2 {
     position: relative;
-    bottom: -25vh;
+    bottom: -18vh;
     left: 15%;
-    animation: movenico2 20s linear infinite;
+    animation: movenico2 40s linear infinite;
     opacity: 1;
     transition: opacity 0.5s;
 }
 
 @keyframes movenico {
     0% {
-        bottom: 5vh;
+        bottom: -25vh;
         left: 15%;
     }
     100% {
       /* Set the final position for nico's animation */
-      bottom: 20vh;
+      bottom: 0vh;
       left: -5%;
     }
   }
 
   @keyframes movenico2 {
     0% {
-        bottom: -15vh;
+        bottom: -18vh;
         left: 15%;
     }
     100% {
       /* Set the final position for nico's animation */
       bottom: 10vh;
-      left: -15%;
+      left: -25%;
     }
   }
 
 .musicPlayer {
   position: fixed;
-  left: 84%;
-  bottom: 90%;
+  left: 68%;
+  bottom: 93%;
   z-index: 1;
 }
 
@@ -143,3 +145,9 @@
 .gta-audio {
   display: none;
 }
+
+
+music-icons:hover {
+  color: gray;
+}
+

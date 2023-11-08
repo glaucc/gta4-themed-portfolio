@@ -4,7 +4,8 @@ import '../styles/styles.css'; // Import your CSS file with the necessary styles
 
 import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
 import figure2 from '../public/assets/img/bald.png';
-import gtaPoster from '../public/assets/img/gtaposter.jpg'
+import gtaPoster from '../public/assets/img/gtaposter.jpg';
+import yo_jj from '../public/assets/img/yo-jj.png';
 
 const audioUrl = "/assets/music/gta4-theme.mp3";
 
@@ -14,10 +15,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import useSound from "use-sound"; 
 
-import { ArrowRight, Medal, MoveRight, Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
+import { ArrowRight, Disc3, GemIcon, Medal, Monitor, MonitorCheck, MoveRight, Music, Music3, Pause, Play, SeparatorHorizontal, SkipBack, SkipForward } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { Separator } from '@/components/ui/separator';
 
 
 export default function Home() {
@@ -26,10 +28,24 @@ export default function Home() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [progress, setProgress] = useState(13)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [hasClicked, setHasClicked] = useState(false); // New state to track whether the button has been clicked
+  const [hasClicked, setHasClicked] = useState(false);
+  const [isIconClicked, setIsIconClicked] = useState(false);
   
+  const toggleIcon = () => {
+    setIsIconClicked(!isIconClicked)
+  }
 
   const [play, { pause, duration, sound }] = useSound(audioUrl);
+
+  // const [isMounted, setIsMounted] = useState(false);
+
+  // useEffect(() => {
+  //   setIsMounted(true);
+  // }, []);
+
+  // if (!isMounted) {
+  //   return null;
+  // }
 
   const playingButton = () => {
     if (isPlaying) {
@@ -116,6 +132,8 @@ export default function Home() {
   //   )
   // }
 
+  
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black">
@@ -148,7 +166,7 @@ export default function Home() {
 
                     {!hasClicked && (
                       <div className='flex items-center first-play'>
-                      <p className="text-white mr-2">First Play the music </p> <MoveRight size={32} className='mr-6'/>
+                      <p className="text-white ml-[-40px] w-[380px]">First Play the music</p><Disc3/><MoveRight size={32} className='mr-6 ml-5'/>
                       </div>)}
                     </div>
                   <Popover>
@@ -184,7 +202,7 @@ export default function Home() {
 
       {isLoading ? (
         <>
-        <div className="gta-text mx-6 text-white">Loading...</div>
+        <div className="gta-text loading-bar mx-6 text-white">Loading...</div>
         <Progress value={progress} className="w-[20%]" />
         </>
       ) : (
@@ -225,25 +243,41 @@ export default function Home() {
             </audio>
       </div>
 
+      {/* Separator */}
+
+      <Separator className="mt-[150px]" />
+
+
     {/* Introfuction */}
       
-      <div className='introduction-main'>
-        <div className='int-img'></div>
-          <div className='int-text-sec'>
+      <div className='introduction-main flex flex-row mt-[200px]'>
+        
+        <div className='int-text-sec mr-10  flex flex-col'>
             <div className='int-header gta-text'>Hello There👋</div>
-            <div className='int-text1'></div>
-            <div className='int-text2'></div>
+            <div className='gta-small-text int-text1 my-8 max-w-2xl'>Welcome to my digital universe, where pixels come alive and ideas take shape! I am the architect of imagination, the weaver of digital dreams, and the creator of captivating experiences. With a touch of creativity and a sprinkle of innovation, I craft digital wonders that transcend the ordinary.</div>
+            <div className='gta-small-text int-text2 my-8 max-w-2xl'>Join me on a journey through the symphony of code and design, where each project is a story waiting to be told, and every line of code is a brushstroke on the canvas of the digital realm. Together, let's explore the boundless possibilities and unlock the magic of the digital world.</div>
           </div>
+        <div className='int-img'>
+        <Image className="figureImg3 ml-[240px]" width={500} height={500} src={yo_jj} alt="Jofevn" />
         </div>
-
       
+      </div>
+
+      {/* Skills */}
+
+      <div className='skills-main'>
+          <div className='hoverme-text'></div>
+          <div className='skills-icon'>
+            {isIconClicked ? <MonitorCheck color='white' className='cursor-pointer' onClick={toggleIcon}/> : <Monitor color='white' className='cursor-pointer' onClick={toggleIcon}/>}
+          </div>
+      </div>
 
       <div className='experience-main'>
 
       </div>
 
       <div className='projects-main'>
-          <Medal />
+          <Medal color='white'/>
       </div>
 
       <div className='projects-contact'>

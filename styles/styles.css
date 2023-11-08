@@ -4,7 +4,7 @@
     src: url('/assets/fonts/pricedown-bl.otf') format('opentype');
   }
 
-
+  /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'); */
 
 .container  {
     height: 100%;
@@ -25,6 +25,19 @@
     color: white;
   }
   
+  .gta-small-text {
+    /* font-family: 'PricedownBL', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    color: white; */
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+  }
+
   .gta-intro-text {
     font-family: 'PricedownBL', sans-serif;
     font-size: 3rem;
@@ -84,7 +97,7 @@
 
 .figureImg2 {
     position: relative;
-    bottom: 12vh;
+    bottom: 10vh;
     left: 15%;
     animation: movenico2 40s linear infinite;
     opacity: 1;
@@ -107,7 +120,7 @@
 
   @keyframes movenico2 {
     0% {
-        bottom: 12vh;
+        bottom: 10vh;
         left: 15%;
         transform: scale(1,1);
     }
@@ -160,6 +173,10 @@ music-icons:hover {
   color: gray;
 }
 
+.loading-bar {
+  margin-top: 15rem;
+}
+
 
 /* Introduction */
 
@@ -169,4 +186,5 @@ music-icons:hover {
 
 .int-header {
   font-size: 3rem;
+  /* margin-top: 1rem; */
 }

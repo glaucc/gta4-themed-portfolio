@@ -15,7 +15,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import useSound from "use-sound"; 
 
-import { ArrowRight, Disc3, GemIcon, Medal, Monitor, MonitorCheck, MoveRight, Music, Music3, Pause, Play, SeparatorHorizontal, SkipBack, SkipForward } from 'lucide-react';
+import { ArrowRight, Atom, Disc3, GemIcon, Medal, Monitor, MonitorCheck, MoveDownRight, MoveRight, Music, Music3, Pause, Play, SeparatorHorizontal, SkipBack, SkipForward, Triangle } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -30,6 +30,11 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [hasClicked, setHasClicked] = useState(false);
   const [isIconClicked, setIsIconClicked] = useState(false);
+  const [isClickClicked, setIsClickClicked] = useState(false);
+
+  const toggleClickIcon = () => {
+    setIsClickClicked(true)
+  }
   
   const toggleIcon = () => {
     setIsIconClicked(!isIconClicked)
@@ -262,13 +267,20 @@ export default function Home() {
         </div>
       
       </div>
+      <Separator className="mt-[150px]" />
 
       {/* Skills */}
 
       <div className='skills-main'>
-          <div className='hoverme-text'></div>
+          {!isClickClicked ? 
+          <div>
+            <div className='gta-text hoverme-text text-white ml-[-285px]'>Click</div><MoveDownRight color='white' size={60} className='ml-[-200px] mb-[80px]'/>
+          </div>
+: ""}
           <div className='skills-icon'>
-            {isIconClicked ? <MonitorCheck color='white' className='cursor-pointer' onClick={toggleIcon}/> : <Monitor color='white' className='cursor-pointer' onClick={toggleIcon}/>}
+            {isIconClicked ? <MonitorCheck color='white' size={75} className='cursor-pointer' onClick={toggleIcon}/> : 
+            
+              <Monitor color='white' size={75} className='cursor-pointer' onClick={() => {toggleIcon();toggleClickIcon()}}/>}
           </div>
       </div>
 

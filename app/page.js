@@ -288,9 +288,9 @@ export default function Home() {
 
 
           <div className='skills-icon flex justify-center'>
-            {isIconClicked ? <div color='white' size={75} className='cursor-pointer hover:scale-110 text-white skill-click2' onClick={toggleIcon}>Close</div> : 
+            {isIconClicked ? <div color='white' size={75} className='cursor-pointer hover:scale-110 text-white skill-click2' onClick={toggleIcon}><h2 className='ml-[12vh] mt-[12vh]'>Close</h2></div> : 
             
-              <div size={75} className='cursor-pointer text-white hover:scale-110 skill-click1' onClick={() => {toggleIcon();toggleClickIcon()}}>Click</div>}
+              <div size={75} className='cursor-pointer text-white hover:scale-110 skill-click1' onClick={() => {toggleIcon();toggleClickIcon()}}><h2 className='ml-[12vh] mt-[12vh]'>Click</h2></div>}
           </div>
 
 

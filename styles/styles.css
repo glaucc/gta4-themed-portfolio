@@ -191,6 +191,13 @@ music-icons:hover {
 
 /* Skills */
 
+.skills-main {
+  margin-top: 20vw;
+  height: 50vw;
+}
+
+
+
 .cards-firstrow, .cards-secondrow {
   display: flex;
   padding: 3rem;
@@ -255,6 +262,24 @@ music-icons:hover {
   scroll-snap-align: start;
   clear: both;
   position: relative;
+  font-size: 3rem;
+  margin: .25rem 0 auto;
+  text-decoration: none;
+  color: rgb(63, 63, 63);
+  border: 0;
+  /* display: inline-block; */
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.skill-click1:hover, .skill-click2:hover {
+  background: linear-gradient(90deg,#ff8a00,#e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 a {

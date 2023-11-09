@@ -272,16 +272,44 @@ export default function Home() {
       {/* Skills */}
 
       <div className='skills-main'>
-          {!isClickClicked ? 
-          <div>
-            <div className='gta-text hoverme-text text-white ml-[-285px]'>Click</div><MoveDownRight color='white' size={60} className='ml-[-200px] mb-[80px]'/>
-          </div>
-: ""}
+
+      {isIconClicked ? 
+
+        <div className='cards-firstrow'>
+          <div className='cards1'><h2>Next.js</h2></div>
+          <div className='cards1'><h2>React.js</h2></div>
+          <div className='cards1'><h2>Javascript</h2></div>
+          <div className='cards1'><h2>Typescript</h2></div>
+          <div className='cards1'><h2>Redux</h2></div>
+          <div className='cards1'><h2>Zustand</h2></div>
+        </div>
+      
+      : ""} 
+
+
           <div className='skills-icon'>
-            {isIconClicked ? <MonitorCheck color='white' size={75} className='cursor-pointer' onClick={toggleIcon}/> : 
+            {isIconClicked ? <div color='white' size={75} className='cursor-pointer' onClick={toggleIcon}></div> : 
             
-              <Monitor color='white' size={75} className='cursor-pointer' onClick={() => {toggleIcon();toggleClickIcon()}}/>}
+              <div color='white' size={75} className='cursor-pointer' onClick={() => {toggleIcon();toggleClickIcon()}}></div>}
           </div>
+
+
+          {isIconClicked ? 
+
+            <div className='cards-secondrow'>
+              <div className='cards2'>React Query<h2></h2></div>
+              <div className='cards2'>Prisma<h2></h2></div>
+              <div className='cards2'><h2>Node.js</h2></div>
+              <div className='cards2'><h2>Python</h2></div>
+              <div className='cards2'><h2>Tailwind CSS</h2></div>
+              <div className='cards2'><h2>CI/CD (Jest, ESlint)</h2></div>
+              <div className='cards2'><h2>Cloud (AWS, GCP, Vercel, Firebase)</h2></div>
+
+            </div>
+
+            : ""}
+
+
       </div>
 
       <div className='experience-main'>

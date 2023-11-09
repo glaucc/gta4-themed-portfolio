@@ -188,3 +188,10 @@ music-icons:hover {
   font-size: 3rem;
   /* margin-top: 1rem; */
 }
+
+/* Skills */
+
+.cards-firstrow, .cards-secondrow {
+  display: flex;
+  padding: 3rem;
+}

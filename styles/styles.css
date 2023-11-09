@@ -197,8 +197,8 @@ music-icons:hover {
 }
 
 .cards1, .cards2 {
-  height: 350px;
-  width: 400px;
+  height: 200px;
+  width: 200px;
   min-width: 250px;
   padding: 1.5rem;
   border-radius: 16px;
@@ -207,10 +207,13 @@ music-icons:hover {
   display: flex;
   flex-direction: column;
   transition: .2s;
-  margin: 0;
+  /* margin: 0; */
   scroll-snap-align: start;
   clear: both;
   position: relative;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
 .cards1:focus-within~.cards1, .cards1:hover~.cards1 {
@@ -254,3 +257,29 @@ music-icons:hover {
   position: relative;
 }
 
+a {
+  text-decoration: none;
+}
+
+.cards1, .cards2 {
+  margin-bottom: auto;
+  margin: auto;
+}
+
+.cards1 h2, .cards2 h2 {
+  font-size: 1.7rem;
+  margin: .25rem 0 auto;
+  text-decoration: none;
+  color: inherit;
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.cards1 h2:hover, .cards2 h2:hover {
+  background: linear-gradient(90deg,#ff8a00,#e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}

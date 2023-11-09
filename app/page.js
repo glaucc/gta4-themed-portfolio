@@ -288,17 +288,17 @@ export default function Home() {
 
 
           <div className='skills-icon flex justify-center'>
-            {isIconClicked ? <div color='white' size={75} className='cursor-pointer text-white skill-click2' onClick={toggleIcon}>Close</div> : 
+            {isIconClicked ? <div color='white' size={75} className='cursor-pointer hover:scale-110 text-white skill-click2' onClick={toggleIcon}>Close</div> : 
             
-              <div size={75} className='cursor-pointer text-white skill-click1' onClick={() => {toggleIcon();toggleClickIcon()}}>Click</div>}
+              <div size={75} className='cursor-pointer text-white hover:scale-110 skill-click1' onClick={() => {toggleIcon();toggleClickIcon()}}>Click</div>}
           </div>
 
 
           {isIconClicked ? 
 
             <div className='cards-secondrow'>
-              <div className='cards2'>React Query<h2></h2></div>
-              <div className='cards2'>Prisma<h2></h2></div>
+              <div className='cards2'><h2>React Query</h2></div>
+              <div className='cards2'><h2>Prisma</h2></div>
               <div className='cards2'><h2>Node.js</h2></div>
               <div className='cards2'><h2>Python</h2></div>
               <div className='cards2'><h2>Tailwind CSS</h2></div>

@@ -262,10 +262,10 @@ export default function Home() {
       
       <div className='introduction-main flex flex-row mt-[200px]'>
         
-        <div className='int-text-sec mr-10  flex flex-col'>
-            <div className='int-header gta-text'>Hello There👋</div>
-            <div className='gta-small-text int-text1 my-8 max-w-2xl'>Welcome to my digital universe, where pixels come alive and ideas take shape! I am the architect of imagination, the weaver of digital dreams, and the creator of captivating experiences. With a touch of creativity and a sprinkle of innovation, I craft digital wonders that transcend the ordinary.</div>
-            <div className='gta-small-text int-text2 my-8 max-w-2xl'>Join me on a journey through the symphony of code and design, where each project is a story waiting to be told, and every line of code is a brushstroke on the canvas of the digital realm. Together, let's explore the boundless possibilities and unlock the magic of the digital world.</div>
+        <div className='int-text-sec mr-[10vw]  flex flex-col'>
+            <div className='int-header gta-text links'>Hello There👋</div>
+            <div className='gta-small-text int-text1 my-8 max-w-2xl links-horizontal'>Welcome to my digital universe, where pixels come alive and ideas take shape! I am the architect of imagination, the weaver of digital dreams, and the creator of captivating experiences. With a touch of creativity and a sprinkle of innovation, I craft digital wonders that transcend the ordinary.</div>
+            <div className='gta-small-text int-text2 my-8 max-w-2xl links-horizontal'>Join me on a journey through the symphony of code and design, where each project is a story waiting to be told, and every line of code is a brushstroke on the canvas of the digital realm. Together, let's explore the boundless possibilities and unlock the magic of the digital world.</div>
           </div>
         <div className='int-img'>
         <Image className="figureImg3 ml-[240px]" width={500} height={500} src={yo_jj} alt="Jofevn" />
@@ -294,7 +294,7 @@ export default function Home() {
 
 
           <div className='skills-icon flex justify-center'>
-            {isIconClicked ? <div color='white' size={75} className='cursor-pointer hover:scale-110 text-white skill-click2' onClick={toggleIcon}><h2 className='ml-[12vh] mt-[12vh]'>Close</h2></div> : 
+            {isIconClicked ? <div color='white' size={75} className='cursor-pointer hover:scale-110 text-white skill-click2 links' onClick={toggleIcon}><h2 className='ml-[12vh] mt-[12vh]'>Close</h2></div> : 
             
               <div 
               size={75} className='cursor-pointer text-white hover:scale-110 skill-click1' 
@@ -305,7 +305,7 @@ export default function Home() {
                 toggleMoveClass(2);
               }
                 }
-              ><h2 className='ml-[12vh] mt-[12vh]'>Click</h2></div>}
+              ><h2 className='ml-[12vh] mt-[12vh] links'>Click</h2></div>}
           </div>
 
 
@@ -332,6 +332,16 @@ export default function Home() {
 
       <div className='experience-main'>
 
+          <div className='gta-text exp-text links'>My <span className='text-green-500'>Experience</span></div>
+
+            <div className='exp-cards'>
+
+            <div className='exp-card'></div>
+            <div className='exp-card exp-card-right'></div>
+            <div className='exp-card'></div>
+            <div className='exp-card exp-card-right'></div>
+
+            </div>
       </div>
 
       <Separator className="mt-[150px]" />

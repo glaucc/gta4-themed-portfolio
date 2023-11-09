@@ -15,7 +15,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import useSound from "use-sound"; 
 
-import { ArrowRight, Atom, Disc3, GemIcon, Medal, Monitor, MonitorCheck, MoveDownRight, MoveRight, Music, Music3, Pause, Play, SeparatorHorizontal, SkipBack, SkipForward, Triangle } from 'lucide-react';
+import {Disc3, MoveRight, Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -39,6 +39,11 @@ export default function Home() {
   const toggleIcon = () => {
     setIsIconClicked(!isIconClicked)
   }
+
+  const toggleMoveClass = (className) => {
+    const card = document.querySelector(`.${className}`);
+    card.classList.toggle(`move`);
+  };
 
   const [play, { pause, duration, sound }] = useSound(audioUrl);
 
@@ -276,12 +281,13 @@ export default function Home() {
       {isIconClicked ? 
 
         <div className='cards-firstrow'>
-          <div className='cards1'><h2>Next.js</h2></div>
-          <div className='cards1'><h2>React.js</h2></div>
-          <div className='cards1'><h2>Javascript</h2></div>
-          <div className='cards1'><h2>Typescript</h2></div>
-          <div className='cards1'><h2>Redux</h2></div>
-          <div className='cards1'><h2>Zustand</h2></div>
+          <div className='cards1 sk1'><h2>Next.js</h2></div>
+          <div className='cards1 sk2'><h2>React.js</h2></div>
+          <div className='cards1 sk3'><h2>Javascript</h2></div>
+          <div className='cards1 sk4'><h2>Typescript</h2></div>
+          <div className='cards1 sk5'><h2>Redux</h2></div>
+          <div className='cards1 sk6'><h2>Zustand</h2></div>
+          <div className='cards1 sk7'><h2>Prisma</h2></div>
         </div>
       
       : ""} 
@@ -290,20 +296,29 @@ export default function Home() {
           <div className='skills-icon flex justify-center'>
             {isIconClicked ? <div color='white' size={75} className='cursor-pointer hover:scale-110 text-white skill-click2' onClick={toggleIcon}><h2 className='ml-[12vh] mt-[12vh]'>Close</h2></div> : 
             
-              <div size={75} className='cursor-pointer text-white hover:scale-110 skill-click1' onClick={() => {toggleIcon();toggleClickIcon()}}><h2 className='ml-[12vh] mt-[12vh]'>Click</h2></div>}
+              <div 
+              size={75} className='cursor-pointer text-white hover:scale-110 skill-click1' 
+              onClick={() => {
+                toggleIcon();
+                toggleClickIcon();
+                toggleMoveClass(1);
+                toggleMoveClass(2);
+              }
+                }
+              ><h2 className='ml-[12vh] mt-[12vh]'>Click</h2></div>}
           </div>
 
 
           {isIconClicked ? 
 
             <div className='cards-secondrow'>
-              <div className='cards2'><h2>React Query</h2></div>
-              <div className='cards2'><h2>Prisma</h2></div>
-              <div className='cards2'><h2>Node.js</h2></div>
-              <div className='cards2'><h2>Python</h2></div>
-              <div className='cards2'><h2>Tailwind CSS</h2></div>
-              <div className='cards2'><h2>CI/CD (Jest, ESlint)</h2></div>
-              <div className='cards2'><h2>Cloud (AWS, GCP, Vercel, Firebase)</h2></div>
+              <div className='cards2 sk8'><h2>React Query</h2></div>
+              <div className='cards2 sk9'><h2>Node.js</h2></div>
+              <div className='cards2 sk10'><h2>Python</h2></div>
+              <div className='cards2 sk11'><h2>Tailwind CSS</h2></div>
+              <div className='cards2 sk12'><h2>CI/CD (Jest, ESlint)</h2></div>
+              <div className='cards2 sk13'><h2>Cloud (AWS, GCP, Vercel, Firebase)</h2></div>
+              <div className='cards2 sk14'><h2>Security (Networking, Pentesting)</h2></div>
 
             </div>
 
@@ -312,17 +327,29 @@ export default function Home() {
 
       </div>
 
+      <Separator className="mt-[150px]" />
+
+
       <div className='experience-main'>
 
       </div>
+
+      <Separator className="mt-[150px]" />
+
 
       <div className='projects-main'>
           {/* <Medal color='white'/> */}
       </div>
 
+      <Separator className="mt-[150px]" />
+
+
       <div className='projects-contact'>
 
       </div>
+      <Separator className="mt-[150px]" />
+
+{/* Footer */}
 
     </div>
 

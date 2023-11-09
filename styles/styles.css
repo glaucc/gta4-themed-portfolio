@@ -193,7 +193,7 @@ music-icons:hover {
 
 .skills-main {
   margin-top: 20vw;
-  height: 50vw;
+  height: 70vw;
 }
 
 
@@ -246,6 +246,57 @@ music-icons:hover {
 .cards2:not(:first-child) {
   margin-left: -130px;
 }
+
+
+.cards1.move1 {
+  transform: translateX(130px) 1s;
+}
+
+.cards2.move2 {
+  transform: translateX(130px) 1s;
+}
+
+.cards1.move1 {
+  transform: translateX(130px) 1s;
+}
+
+.cards2.move2 {
+  transform: translateX(130px) 1s;
+}
+
+.cards1.move1 {
+  transform: translateX(130px) 1s;
+}
+
+.cards2.move2 {
+  transform: translateX(130px) 1s;
+}
+
+.cards1.move1 {
+  transform: translateX(130px) 1s;
+}
+
+.cards2.move2 {
+  transform: translateX(130px) 1s;
+}
+
+.cards1.move1 {
+  transform: translateX(130px) 1s;
+}
+
+.cards2.move2 {
+  transform: translateX(130px) 1s;
+}
+
+.cards1.move1 {
+  transform: translateX(130px) 1s;
+}
+
+.cards2.move2 {
+  transform: translateX(130px) 1s;
+}
+
+
 
 .skill-click1, .skill-click2 {
   height: 350px;

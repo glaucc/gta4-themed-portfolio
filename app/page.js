@@ -216,9 +216,9 @@ export default function Home() {
           <div className="content with-background-image">
             {/* Your component content here */}
             <div className="intro">
-              <div className="intro-texts">
-                <h6 className="gta-intro-text gta-intro-text1 mx-6 text-white">Represents</h6>
-                <h6 className="gta-intro-text gta-intro-text2 mx-6 text-white">Jofevn Studios</h6>
+              <div className="intro-texts w-[40vw]">
+                <h6 className="gta-intro-text gta-intro-text1 mx-6 ml-[4vw] links text-white cursor-pointer">Represents</h6>
+                <h6 className="gta-intro-text gta-intro-text2 mx-6 ml-[4vw] links text-white cursor-pointer">Jofevn Studios</h6>
               </div>
 
               <div className="nico">

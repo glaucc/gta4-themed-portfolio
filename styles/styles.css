@@ -88,7 +88,7 @@
 
 .figureImg1 {
     position: relative;
-    bottom: 5vh;
+    bottom: -7vh;
     left: 15%;
     animation: movenico 40s linear infinite;
     opacity: 1;
@@ -97,7 +97,7 @@
 
 .figureImg2 {
     position: relative;
-    bottom: 10vh;
+    bottom: -8vh;
     left: 15%;
     animation: movenico2 40s linear infinite;
     opacity: 1;
@@ -106,13 +106,13 @@
 
 @keyframes movenico {
     0% {
-        bottom: 5vh;
+        bottom: -7vh;
         left: 15%;
         transform: scale(1,1);
     }
     100% {
       /* Set the final position for nico's animation */
-      bottom: 15vh;
+      bottom: 10vh;
       left: -5%;
       transform: scale(1.2,1.2);
     }
@@ -120,13 +120,13 @@
 
   @keyframes movenico2 {
     0% {
-        bottom: 10vh;
+        bottom: -8vh;
         left: 15%;
         transform: scale(1,1);
     }
     100% {
       /* Set the final position for nico's animation */
-      bottom: 22vh;
+      bottom: 12vh;
       left: -25%;
       transform: scale(1.2,1.2);
     }

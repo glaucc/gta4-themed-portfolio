@@ -40,10 +40,10 @@ export default function Home() {
     setIsIconClicked(!isIconClicked)
   }
 
-  const toggleMoveClass = (className) => {
-    const card = document.querySelector(`.${className}`);
-    card.classList.toggle(`move`);
-  };
+  // const toggleMoveClass = (className) => {
+  //   const card = document.querySelector(`.${className}`);
+  //   card.classList.toggle(`move`);
+  // };
 
   const [play, { pause, duration, sound }] = useSound(audioUrl);
 
@@ -272,11 +272,11 @@ export default function Home() {
         </div>
       
       </div>
-      <Separator className="mt-[150px]" />
+      <Separator className="mt-[80px]" />
 
       {/* Skills */}
 
-      <div className='skills-main'>
+      <div className='skills-main mb-[8vw]'>
 
       {isIconClicked ? 
 

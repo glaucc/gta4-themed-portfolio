@@ -287,10 +287,10 @@ export default function Home() {
       : ""} 
 
 
-          <div className='skills-icon'>
-            {isIconClicked ? <div color='white' size={75} className='cursor-pointer' onClick={toggleIcon}></div> : 
+          <div className='skills-icon flex justify-center'>
+            {isIconClicked ? <div color='white' size={75} className='cursor-pointer text-white skill-click2' onClick={toggleIcon}>Close</div> : 
             
-              <div color='white' size={75} className='cursor-pointer' onClick={() => {toggleIcon();toggleClickIcon()}}></div>}
+              <div size={75} className='cursor-pointer text-white skill-click1' onClick={() => {toggleIcon();toggleClickIcon()}}>Click</div>}
           </div>
 
 
@@ -317,7 +317,7 @@ export default function Home() {
       </div>
 
       <div className='projects-main'>
-          <Medal color='white'/>
+          {/* <Medal color='white'/> */}
       </div>
 
       <div className='projects-contact'>

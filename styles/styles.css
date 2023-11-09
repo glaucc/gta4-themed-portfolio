@@ -195,3 +195,62 @@ music-icons:hover {
   display: flex;
   padding: 3rem;
 }
+
+.cards1, .cards2 {
+  height: 350px;
+  width: 400px;
+  min-width: 250px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #17141d;
+  box-shadow: -1rem 0 3rem #000;
+  display: flex;
+  flex-direction: column;
+  transition: .2s;
+  margin: 0;
+  scroll-snap-align: start;
+  clear: both;
+  position: relative;
+}
+
+.cards1:focus-within~.cards1, .cards1:hover~.cards1 {
+  transform: translateX(130px);
+}
+
+.cards1:hover {
+  transform: translateY(-1rem);
+}
+
+.cards1:not(:first-child) {
+  margin-left: -130px;
+}
+
+.cards2:focus-within~.cards2, .cards2:hover~.cards2 {
+  transform: translateX(130px);
+}
+
+.cards2:hover {
+  transform: translateY(-1rem);
+}
+
+.cards2:not(:first-child) {
+  margin-left: -130px;
+}
+
+.skill-click1, .skill-click2 {
+  height: 350px;
+  width: 400px;
+  min-width: 250px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #17141d;
+  box-shadow: -1rem 0 3rem #000;
+  display: flex;
+  flex-direction: column;
+  transition: .2s;
+  /* margin: 50%; */
+  scroll-snap-align: start;
+  clear: both;
+  position: relative;
+}
+

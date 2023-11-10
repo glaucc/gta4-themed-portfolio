@@ -211,10 +211,10 @@ function handleCardLeave() {
           rel="stylesheet"
         />
       </Head>
-      <div className="w-full absolute top-0 flex items-center justify-between p-4">
+      <div className="w-full absolute top-0 flex items-center justify-between p-4 lg:flex lg:items-center">
         <div className="flex items-center">
           {/* <img src="/path_to_your_logo/logo.png" alt="Logo" className="h-8 mr-2" /> */}
-          <nav className="flex items-center">
+          <nav className="flex items-center lg:flex-row lg:ml-6">
             <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Github</Link></h6>
             <h6 className="gta-text mx-6 text-white links"><Link href='https://www.linkedin.com/in/yusif-ahmedov/'>Linkedin</Link></h6>
             <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Work</Link></h6>

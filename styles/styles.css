@@ -493,6 +493,10 @@ body:has(.card[data-color="brown"]:hover) {
   background-color: rgb(var(--brown-rgb) / 25%);
 }
 
+/* .body-transformed {
+  transition: transform 100ms;
+} */
+
 
 #proj-cards {
   width: 100%;

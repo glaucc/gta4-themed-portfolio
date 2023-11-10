@@ -36,8 +36,11 @@ export default function Home() {
   const [isIconClicked, setIsIconClicked] = useState(false);
   const [isClickClicked, setIsClickClicked] = useState(false);
 
-  // Get all proj-card elements
-const projCards = document.querySelectorAll('.proj-card');
+
+  
+  const projCards = document.querySelectorAll('.proj-card');
+
+console.log('Number of proj-cards:', projCards.length);
 
 // Attach event listeners to each proj-card
 projCards.forEach(projCard => {
@@ -48,23 +51,36 @@ projCards.forEach(projCard => {
 // Function to handle hover
 function handleCardHover() {
   // Get the data-color attribute value from the hovered card
+  let div = document.getElementsByClassName('proj-body');
+  const body = document.body;
+  console.log(body)
   const color = this.getAttribute('data-color');
 
   // Change the body background color based on the card's color
-  if (color === 'blue') {
-    document.body.style.backgroundColor = 'rgb(92, 191, 249)';
-  } else if (color === 'green') {
-    document.body.style.backgroundColor = 'rgb(125, 161, 35)';
-  } else if (color === 'brown') {
-    document.body.style.backgroundColor = 'rgb(127, 46, 23)';
-  }
+  setTimeout(() => {
+    if (color === 'blue') {
+      // body.style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
+      div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
+      body.style.transition = 'transform 100ms'
+    } else if (color === 'green') {
+      // body.style.backgroundColor = 'rgba(92, 191, 249, 1)';
+      div[0].style.backgroundColor = 'rgba(125, 161, 35, 0.25)';
+    } else if (color === 'brown') {
+      // body.style.backgroundColor = 'rgba(92, 191, 249, 0.55)';
+      div[0].style.backgroundColor = 'rgba(127, 46, 23, 0.25)';
+    }
+  }, 100);
 }
 
 // Function to handle leave (reset background color)
 function handleCardLeave() {
   // Reset the body background color
-  document.body.style.backgroundColor = ''; // or any default color you want
+  document.body.style.backgroundColor = 'black';
+    const div = document.getElementsByClassName('proj-body');
+    div[0].style.backgroundColor = 'black';
 }
+
+
 
   const toggleClickIcon = () => {
     setIsClickClicked(true)
@@ -116,6 +132,7 @@ function handleCardLeave() {
 
 
   useEffect(() => {
+    document.body.style.backgroundColor = 'black';
     let intervalId;
     intervalId = setTimeout(() => {
       setIsLoading(false);
@@ -180,7 +197,7 @@ function handleCardLeave() {
 
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black wholebg" >
+    <div className="min-h-screen flex flex-col items-center justify-center wholebg" >
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Pricedown:wght@700&display=swap"
@@ -445,14 +462,11 @@ animations, story features and more</div>
 
       <div className='projects-main'>
 
-      <div className='gta-text exp-text links'>My <span className='lineargd-proj-text'>Portfolio</span></div>
+      <div className='gta-text exp-text links ml-[14vh] mb-[2rem]'>My <span className='lineargd-proj-text'>Portfolio</span></div>
 
-          {/* <Cards image={asset1} image2={asset2} image3={asset3}/> */}
-          {/* <Image className="" width={400} height={400} alt='project-image' src={asset10} />
-          <Image className="figureImg3 ml-[240px]" width={500} height={500} src={yo_jj} alt="Jofevn" /> */}
 
 <div className='proj-htmlBody'>
-    <div className='proj-body'>
+    <div className='proj-body w-[210vh] h-[100vh] overflow-hidden'>
   <div id="proj-cards" className='proj-cards'>
   <div className="proj-card flex flex-col" data-color="blue">
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset1} />

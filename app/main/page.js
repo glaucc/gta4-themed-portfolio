@@ -35,57 +35,70 @@ export default function Main() {
   const [hasClicked, setHasClicked] = useState(false);
   const [isIconClicked, setIsIconClicked] = useState(false);
   const [isClickClicked, setIsClickClicked] = useState(false);
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
+  useEffect(() => {
+    
+    function handleCardHover() {
+      // Get the data-color attribute value from the hovered card
+      let div = document.getElementsByClassName('proj-body');
+      const body = document.body;
+      const color = this.getAttribute('data-color');
+    
+      // Change the body background color based on the card's color
+      setTimeout(() => {
+        if (color === 'blue') {
+          // body.style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
+          div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
+          body.style.transition = 'transform 100ms'
+          div[0].style.boxShadow = '0px 0px 60px rgba(92, 191, 249, 0.25)';
+          // div[0].style.background = 'linear-gradient(0deg, black 20%, rgba(92, 191, 249, 0.25) 100%, black 20%)';
+        } else if (color === 'green') {
+          // body.style.backgroundColor = 'rgba(92, 191, 249, 1)';
+          div[0].style.backgroundColor = 'rgba(125, 161, 35, 0.25)';
+          div[0].style.boxShadow = '0px 0px 60px rgba(125, 161, 35, 0.25)' 
+    
+        } else if (color === 'brown') {
+          // body.style.backgroundColor = 'rgba(92, 191, 249, 0.55)';
+          div[0].style.backgroundColor = 'rgba(127, 23, 101, 0.425)';
+          div[0].style.boxShadow = '0px 0px 60px rgba(127, 23, 101, 0.25)' 
+    
+        }
+      }, 100);
+    }
+    
+    // Function to handle leave (reset background color)
+    function handleCardLeave() {
+      // Reset the body background color
+      document.body.style.backgroundColor = 'black';
+        const div = document.getElementsByClassName('proj-body');
+        div[0].style.backgroundColor = 'black';
+        div[0].style.boxShadow = 'black'
+    }
+
+    const queryForProjCards = () => {
+        const projCards = document.querySelectorAll('.proj-card');
+  
+        console.log('Number of proj-cards:', projCards.length);
+  
+        // Attach event listeners to each proj-card
+        projCards.forEach((projCard) => {
+          projCard.addEventListener('mouseover', handleCardHover);
+          projCard.addEventListener('mouseout', handleCardLeave);
+        });
+  
+        // Set isPageLoaded to true when the component has mounted
+        setIsPageLoaded(true);
+      };
+
+    const timeoutId = setTimeout(queryForProjCards, 0);
+
+    // Cleanup function to remove the timeout when the component unmounts
+    return () => clearTimeout(timeoutId);
+
+  }, [])
 
   
-  const projCards = document.querySelectorAll('.proj-card');
-
-console.log('Number of proj-cards:', projCards.length);
-
-// Attach event listeners to each proj-card
-projCards.forEach(projCard => {
-  projCard.addEventListener('mouseover', handleCardHover);
-  projCard.addEventListener('mouseout', handleCardLeave);
-});
-
-// Function to handle hover
-function handleCardHover() {
-  // Get the data-color attribute value from the hovered card
-  let div = document.getElementsByClassName('proj-body');
-  const body = document.body;
-  console.log(body)
-  const color = this.getAttribute('data-color');
-
-  // Change the body background color based on the card's color
-  setTimeout(() => {
-    if (color === 'blue') {
-      // body.style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
-      div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
-      body.style.transition = 'transform 100ms'
-      div[0].style.boxShadow = '0px 0px 60px rgba(92, 191, 249, 0.25)';
-      // div[0].style.background = 'linear-gradient(0deg, black 20%, rgba(92, 191, 249, 0.25) 100%, black 20%)';
-    } else if (color === 'green') {
-      // body.style.backgroundColor = 'rgba(92, 191, 249, 1)';
-      div[0].style.backgroundColor = 'rgba(125, 161, 35, 0.25)';
-      div[0].style.boxShadow = '0px 0px 60px rgba(125, 161, 35, 0.25)' 
-
-    } else if (color === 'brown') {
-      // body.style.backgroundColor = 'rgba(92, 191, 249, 0.55)';
-      div[0].style.backgroundColor = 'rgba(127, 23, 101, 0.425)';
-      div[0].style.boxShadow = '0px 0px 60px rgba(127, 23, 101, 0.25)' 
-
-    }
-  }, 100);
-}
-
-// Function to handle leave (reset background color)
-function handleCardLeave() {
-  // Reset the body background color
-  document.body.style.backgroundColor = 'black';
-    const div = document.getElementsByClassName('proj-body');
-    div[0].style.backgroundColor = 'black';
-    div[0].style.boxShadow = 'black'
-}
 
 
 
@@ -210,6 +223,7 @@ function handleCardLeave() {
           href="https://fonts.googleapis.com/css2?family=Pricedown:wght@700&display=swap"
           rel="stylesheet"
         />
+        <Link href="https://fonts.cdnfonts.com/css/pricedown" rel="stylesheet" />
       </Head>
       <div className="w-full absolute top-0 flex items-center justify-between p-4 lg:flex lg:items-center">
         <div className="flex items-center">
@@ -471,8 +485,8 @@ animations, story features and more</div>
 
       <div className='gta-text exp-text links ml-[14vh] mb-[2rem]'>My <span className='lineargd-proj-text'>Portfolio</span></div>
 
-
-<div className='proj-htmlBody'>
+{isPageLoaded ? (
+    <div className='proj-htmlBody'>
     <div className='proj-body w-[210vh] h-[100vh] overflow-hidden'>
   <div id="proj-cards" className='proj-cards'>
   <div className="proj-card flex flex-col" data-color="blue">
@@ -517,6 +531,8 @@ animations, story features and more</div>
   </div>
   </div>
   </div>
+) :  <p className='gta-only-text'>Loading...</p> }
+
 
 
       </div>

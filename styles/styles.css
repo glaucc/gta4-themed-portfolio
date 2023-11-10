@@ -1,12 +1,28 @@
+@import url('https://fonts.cdnfonts.com/css/pricedown');
+
 /* public/styles.css */
 @font-face {
     font-family: 'PricedownBL';
     src: url('/assets/fonts/pricedown-bl.otf') format('opentype');
   }
 
+  /* @font-face {
+    font-family: 'PricedownBL';
+    src: url('https://fonts.cdnfonts.com/css/pricedown') format('opentype');
+  } */
+
   /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap'); */
 
 
+  /* @font-face {
+    font-family: 'Pricedown Bl'; /* Note: I adjusted the font-family name to match the CDN's response */
+    /* font-style: normal;
+    font-weight: 900;
+    src: local('Pricedown Bl'), url('https://fonts.cdnfonts.com/s/4837/pricedown-bl.woff') format('woff');
+} */
+
+/* body {
+  font-family: 'Pricedown Bl', sans-serif; */
   
 .container  {
     height: 100%;

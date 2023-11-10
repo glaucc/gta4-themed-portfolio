@@ -466,6 +466,7 @@ a {
   align-items: center;
   justify-content: center;
   transition: background-color 1000ms;
+  background: black;
 }
 
 
@@ -476,21 +477,21 @@ a {
 .wholebg:hover .proj-card[data-color='green'] {
   background-color: rgb(125, 161, 35);
 }
-
-.wholebg:hover .proj-card[data-color='brown'] {
-  background-color: rgb(127, 46, 23);
+*/
+/* .wholebg:hover .proj-card[data-color='brown'] {
+  background-color: rgb(127, 23, 101), 0.425);
 } */
 
 body:has(.card[data-color="blue"]:hover) {
-  background-color: rgb(var(--blue-rgb) / 25%);
+  background: rgb(var(--blue-rgb) / 25%);
 }
 
 body:has(.card[data-color="green"]:hover) {
-  background-color: rgb(var(--green-rgb) / 25%);
+  background: rgb(var(--green-rgb) / 25%);
 }
 
 body:has(.card[data-color="brown"]:hover) {
-  background-color: rgb(var(--brown-rgb) / 25%);
+  background: rgb(var(--brown-rgb) / 25%);
 }
 
 /* .body-transformed {

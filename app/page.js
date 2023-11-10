@@ -62,12 +62,18 @@ function handleCardHover() {
       // body.style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
       div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
       body.style.transition = 'transform 100ms'
+      div[0].style.boxShadow = '0px 0px 60px rgba(92, 191, 249, 0.25)';
+      // div[0].style.background = 'linear-gradient(0deg, black 20%, rgba(92, 191, 249, 0.25) 100%, black 20%)';
     } else if (color === 'green') {
       // body.style.backgroundColor = 'rgba(92, 191, 249, 1)';
       div[0].style.backgroundColor = 'rgba(125, 161, 35, 0.25)';
+      div[0].style.boxShadow = '0px 0px 60px rgba(125, 161, 35, 0.25)' 
+
     } else if (color === 'brown') {
       // body.style.backgroundColor = 'rgba(92, 191, 249, 0.55)';
-      div[0].style.backgroundColor = 'rgba(127, 46, 23, 0.25)';
+      div[0].style.backgroundColor = 'rgba(127, 23, 101, 0.425)';
+      div[0].style.boxShadow = '0px 0px 60px rgba(127, 23, 101, 0.25)' 
+
     }
   }, 100);
 }
@@ -78,6 +84,7 @@ function handleCardLeave() {
   document.body.style.backgroundColor = 'black';
     const div = document.getElementsByClassName('proj-body');
     div[0].style.backgroundColor = 'black';
+    div[0].style.boxShadow = 'black'
 }
 
 

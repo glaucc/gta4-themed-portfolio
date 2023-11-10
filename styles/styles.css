@@ -385,6 +385,12 @@ a {
   background-clip: text;
 }
 
+
+
+/* Experience */
+
+
+
 .exp-text {
   font-size: 3rem;
   margin-top: 5vw;
@@ -425,4 +431,21 @@ a {
 }
 .exp-card:hover {
   transform: scale(1.1,1.1);
+}
+
+
+
+/* Projects */
+
+
+.lineargd-exp-text {
+  background: linear-gradient(-90deg, rgb(145, 207, 64), rgb(89, 197, 0));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.lineargd-proj-text {
+  background: linear-gradient(90deg, #b700ff, #e52e71);
+  -webkit-background-clip: text;
+  color: transparent;
 }

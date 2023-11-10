@@ -274,10 +274,14 @@ export default function Home() {
       </div>
       <Separator className="mt-[80px]" />
 
+
+
       {/* Skills */}
 
-      <div className='skills-main mb-[8vw]'>
 
+
+      <div className='skills-main mb-[8vw]'>
+                  
       {isIconClicked ? 
 
         <div className='cards-firstrow'>
@@ -301,8 +305,7 @@ export default function Home() {
               onClick={() => {
                 toggleIcon();
                 toggleClickIcon();
-                toggleMoveClass(1);
-                toggleMoveClass(2);
+                
               }
                 }
               ><h2 className='ml-[12vh] mt-[12vh] links'>Click</h2></div>}
@@ -332,7 +335,7 @@ export default function Home() {
 
       <div className='experience-main'>
 
-          <div className='gta-text exp-text links'>My <span className='text-green-500'>Experience</span></div>
+          <div className='gta-text exp-text links'>My <span className='lineargd-exp-text'>Experience</span></div>
 
             <div className='exp-cards'>
 
@@ -407,7 +410,10 @@ animations, story features and more</div>
 
 
       <div className='projects-main'>
-          {/* <Medal color='white'/> */}
+
+      <div className='gta-text exp-text links'>My <span className='lineargd-proj-text'>Portfolio</span></div>
+
+
       </div>
 
       <Separator className="mt-[150px]" />

@@ -336,11 +336,70 @@ export default function Home() {
 
             <div className='exp-cards'>
 
-            <div className='exp-card'></div>
-            <div className='exp-card exp-card-right'></div>
-            <div className='exp-card'></div>
-            <div className='exp-card exp-card-right'></div>
+            
+            <div className='exp-card'>
+              <div className='text-white text-3xl roboto-only-text'>Front End Developer</div>
+              <div className='mb-[0.7vw] roboto-only-text'>
+                <div className='text-white text-xl'>Your Company</div>
+                <div className='text-white text-lg'>Present - Future</div>
+              </div>
+              <div className='roboto-only-text text-xl'>
+                <div className='text-white'>• Changed everyone's life</div>
+                <div className='text-white'>• Saved the world</div>
+                <div className='text-white'>• Cured cancer</div>
+                <div className='text-white'>• Went to Mars for work</div>
+                <div className='text-white'>• Won the fight against Bond</div>
+              </div>
+            </div>
 
+
+            <div className='exp-card exp-card-right'>
+            <div className='text-white text-3xl roboto-only-text'>Front End Developer</div>
+              <div className='mb-[0.7vw] roboto-only-text'>
+                <div className='text-white text-xl'>Sferex Agency</div>
+                <div className='text-white text-lg'>Aug 2021 - Present (2 years 3 months)</div>
+              </div>
+              <div className='roboto-only-text text-xl'>
+                <div className='text-white'>• Developed 20+ Apps with React.js, Next.js, Typescript tech stack</div>
+                <div className='text-white'>• Designed 5+ interactive games on the web and making the project memory-friendly</div>
+                <div className='text-white'>• Maked Saas apps, E-commerce 1000+ people used daily</div>
+                <div className='text-white'>• Improved performance more than 40%, Improved SEO to get 20% more traffic</div>
+              </div>
+            </div>
+            
+            
+            <div className='exp-card'>
+            <div className='text-white text-3xl roboto-only-text'>Front End Developer</div>
+              <div className='mb-[0.7vw] roboto-only-text'>
+                <div className='text-white text-xl'>Bruto Azerbaijan</div>
+                <div className='text-white text-lg'>Nov 2022 - Oct 2023 (1 year)</div>
+              </div>
+              <div className='roboto-only-text text-xl'>
+                <div className='text-white'>• Building 10+ Next.js & React.js projects from scratch and building and adding features on existing
+projects based on customer feedbacks</div>
+                <div className='text-white'>• Debugged and solved all problems and improved speed by 35%</div>
+                <div className='text-white'>• Added Terminal, User Performance Analyzer and 30+ more unique interactive functionalities</div>
+                
+              </div>
+            </div>
+            
+            
+            <div className='exp-card exp-card-right'>
+            <div className='text-white text-3xl roboto-only-text'>Web Technical Assistant</div>
+              <div className='mb-[0.7vw] roboto-only-text'>
+                <div className='text-white text-xl'>Caspian One</div>
+                <div className='text-white text-lg'>Jan 2020 - June 2020 (6 months)</div>
+              </div>
+              <div className='roboto-only-text text-xl'>
+                <div className='text-white'>• Builded and contributed 5+ React.js projects and added 10+ advanced CSS features such as advanced
+animations, story features and more</div>
+                <div className='text-white'>• Worked and built 10+ websites on Webflow and WordPress</div>
+                <div className='text-white'>• Contributed to 3+ projects with more than 400+ people used daily</div>
+
+              </div>
+            </div>
+
+            
             </div>
       </div>
 

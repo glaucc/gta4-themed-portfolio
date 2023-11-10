@@ -36,50 +36,28 @@ export default function Main() {
   const [isIconClicked, setIsIconClicked] = useState(false);
   const [isClickClicked, setIsClickClicked] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const [isBlueHovered, setIsBlueHovered] = useState(false);
+  const [isGreenHovered, setIsGreenHovered] = useState(false);
+  const [isPinkHovered, setIsPinkHovered] = useState(false);
+
+
+  const handleBlueHover = () => {
+    setIsBlueHovered(!isBlueHovered);
+  }
+
+  const handleGreenHover = () => {
+    setIsGreenHovered(!isGreenHovered);
+  }
+
+  const handlePinkHover = () => {
+    setIsPinkHovered(!isPinkHovered);
+  }
 
   useEffect(() => {
     
-    function handleCardHover() {
-      // Get the data-color attribute value from the hovered card
-      let div = document.getElementsByClassName('proj-body');
-      const body = document.body;
-      const color = this.getAttribute('data-color');
-    
-      // Change the body background color based on the card's color
-      setTimeout(() => {
-        if (color === 'blue') {
-          // body.style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
-          div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
-          body.style.transition = 'transform 100ms'
-          div[0].style.boxShadow = '0px 0px 60px rgba(92, 191, 249, 0.25)';
-          // div[0].style.background = 'linear-gradient(0deg, black 20%, rgba(92, 191, 249, 0.25) 100%, black 20%)';
-        } else if (color === 'green') {
-          // body.style.backgroundColor = 'rgba(92, 191, 249, 1)';
-          div[0].style.backgroundColor = 'rgba(125, 161, 35, 0.25)';
-          div[0].style.boxShadow = '0px 0px 60px rgba(125, 161, 35, 0.25)' 
-    
-        } else if (color === 'brown') {
-          // body.style.backgroundColor = 'rgba(92, 191, 249, 0.55)';
-          div[0].style.backgroundColor = 'rgba(127, 23, 101, 0.425)';
-          div[0].style.boxShadow = '0px 0px 60px rgba(127, 23, 101, 0.25)' 
-    
-        }
-      }, 100);
-    }
-    
-    // Function to handle leave (reset background color)
-    function handleCardLeave() {
-      // Reset the body background color
-      document.body.style.backgroundColor = 'black';
-        const div = document.getElementsByClassName('proj-body');
-        div[0].style.backgroundColor = 'black';
-        div[0].style.boxShadow = 'black'
-    }
-
     const queryForProjCards = () => {
         const projCards = document.querySelectorAll('.proj-card');
   
-        console.log('Number of proj-cards:', projCards.length);
   
         // Attach event listeners to each proj-card
         projCards.forEach((projCard) => {
@@ -91,12 +69,47 @@ export default function Main() {
         setIsPageLoaded(true);
       };
 
+    function handleCardHover(event) {
+      // Get the data-color attribute value from the hovered card
+      let div = document.getElementsByClassName('proj-body');
+      const body = document.body;
+    
+      // Change the body background color based on the card's color
+    //   setTimeout(() => {
+        if (isBlueHovered) {
+          div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
+          body.style.transition = 'transform 100ms'
+          div[0].style.boxShadow = '0px 0px 60px rgba(92, 191, 249, 0.25)';
+          // div[0].style.background = 'linear-gradient(0deg, black 20%, rgba(92, 191, 249, 0.25) 100%, black 20%)';
+        } else if (isGreenHovered) {
+          div[0].style.backgroundColor = 'rgba(125, 161, 35, 0.25)';
+          div[0].style.boxShadow = '0px 0px 60px rgba(125, 161, 35, 0.25)' 
+    
+        } else if (isPinkHovered) {
+          div[0].style.backgroundColor = 'rgba(127, 23, 101, 0.425)';
+          div[0].style.boxShadow = '0px 0px 60px rgba(127, 23, 101, 0.25)' 
+    
+        }
+    //   }, 100);
+    }
+    
+    // Function to handle leave (reset background color)
+    function handleCardLeave() {
+      // Reset the body background color
+      document.body.style.backgroundColor = 'black';
+        const div = document.getElementsByClassName('proj-body');
+        div[0].style.backgroundColor = 'black';
+        div[0].style.boxShadow = 'black'
+    }
+
+    
+
     const timeoutId = setTimeout(queryForProjCards, 0);
 
     // Cleanup function to remove the timeout when the component unmounts
     return () => clearTimeout(timeoutId);
 
-  }, [])
+  }, [isBlueHovered, isGreenHovered, isPinkHovered])
 
   
 
@@ -489,7 +502,7 @@ animations, story features and more</div>
     <div className='proj-htmlBody'>
     <div className='proj-body w-[210vh] h-[100vh] overflow-hidden'>
   <div id="proj-cards" className='proj-cards'>
-  <div className="proj-card flex flex-col" data-color="blue">
+  <div className="proj-card flex flex-col" onMouseOver={handleBlueHover} data-color="blue">
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset1} />
     <div className="card-faders">
       <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
@@ -502,7 +515,7 @@ animations, story features and more</div>
       <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
     </div>
   </div>
-  <div className="proj-card" data-color="green">
+  <div className="proj-card" onMouseOver={handleGreenHover} data-color="green">
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset2}/>
     <div className="card-faders">
       <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
@@ -515,7 +528,7 @@ animations, story features and more</div>
       <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
     </div>
   </div>
-  <div className="proj-card" data-color="brown">
+  <div className="proj-card" onMouseOver={handlePinkHover} data-color="brown">
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset3}/>
     <div className="card-faders">
       <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>

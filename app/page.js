@@ -6,6 +6,10 @@ import figure1 from '../public/assets/img/GTA4-1-figure-removebg-preview.png'
 import figure2 from '../public/assets/img/bald.png';
 import gtaPoster from '../public/assets/img/gtaposter.jpg';
 import yo_jj from '../public/assets/img/yo-jj.png';
+import asset1 from '../public/assets/img/project-img1.jpg'
+import asset2 from '../public/assets/img/project-img2.jpg'
+import asset3 from '../public/assets/img/project-img3.jpg'
+
 
 const audioUrl = "/assets/music/gta4-theme.mp3";
 
@@ -31,6 +35,36 @@ export default function Home() {
   const [hasClicked, setHasClicked] = useState(false);
   const [isIconClicked, setIsIconClicked] = useState(false);
   const [isClickClicked, setIsClickClicked] = useState(false);
+
+  // Get all proj-card elements
+const projCards = document.querySelectorAll('.proj-card');
+
+// Attach event listeners to each proj-card
+projCards.forEach(projCard => {
+  projCard.addEventListener('mouseover', handleCardHover);
+  projCard.addEventListener('mouseout', handleCardLeave);
+});
+
+// Function to handle hover
+function handleCardHover() {
+  // Get the data-color attribute value from the hovered card
+  const color = this.getAttribute('data-color');
+
+  // Change the body background color based on the card's color
+  if (color === 'blue') {
+    document.body.style.backgroundColor = 'rgb(92, 191, 249)';
+  } else if (color === 'green') {
+    document.body.style.backgroundColor = 'rgb(125, 161, 35)';
+  } else if (color === 'brown') {
+    document.body.style.backgroundColor = 'rgb(127, 46, 23)';
+  }
+}
+
+// Function to handle leave (reset background color)
+function handleCardLeave() {
+  // Reset the body background color
+  document.body.style.backgroundColor = ''; // or any default color you want
+}
 
   const toggleClickIcon = () => {
     setIsClickClicked(true)
@@ -146,7 +180,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black wholebg" >
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Pricedown:wght@700&display=swap"
@@ -412,6 +446,56 @@ animations, story features and more</div>
       <div className='projects-main'>
 
       <div className='gta-text exp-text links'>My <span className='lineargd-proj-text'>Portfolio</span></div>
+
+          {/* <Cards image={asset1} image2={asset2} image3={asset3}/> */}
+          {/* <Image className="" width={400} height={400} alt='project-image' src={asset10} />
+          <Image className="figureImg3 ml-[240px]" width={500} height={500} src={yo_jj} alt="Jofevn" /> */}
+
+<div className='proj-htmlBody'>
+    <div className='proj-body'>
+  <div id="proj-cards" className='proj-cards'>
+  <div className="proj-card flex flex-col" data-color="blue">
+    <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset1} />
+    <div className="card-faders">
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+    </div>
+  </div>
+  <div className="proj-card" data-color="green">
+    <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset2}/>
+    <div className="card-faders">
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+    </div>
+  </div>
+  <div className="proj-card" data-color="brown">
+    <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset3}/>
+    <div className="card-faders">
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
 
       </div>

@@ -3,3 +3,11 @@ Personal Portfolio that's built with:
 - React.js
 - Tailwind
 - GTA 4 Font Theme
+
+
+## For Setup:
+```bash
+npm i
+
+npm run dev
+```

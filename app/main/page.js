@@ -3,7 +3,7 @@
 import '../../styles/styles.css';
 
 import figure1 from '../../public/assets/img/GTA4-1-figure-removebg-preview.png'
-import figure2 from '../../public/assets/img/bald.png';
+import figure2 from '../../public/assets/img/final.png';
 import gtaPoster from '../../public/assets/img/gtaposter.jpg';
 import yo_jj from '../../public/assets/img/yo-jj.png';
 import asset1 from '../../public/assets/img/project-img1.jpg'
@@ -19,7 +19,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import useSound from "use-sound"; 
 
-import {Disc3, MoveRight, Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
+import {ArrowUpRight, Disc3, Github, MoveRight, Music, Pause, Play, SkipBack, SkipForward } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -41,17 +41,6 @@ export default function Main() {
   const [isPinkHovered, setIsPinkHovered] = useState(false);
 
 
-  const handleBlueHover = () => {
-    setIsBlueHovered(!isBlueHovered);
-  }
-
-  const handleGreenHover = () => {
-    setIsGreenHovered(!isGreenHovered);
-  }
-
-  const handlePinkHover = () => {
-    setIsPinkHovered(!isPinkHovered);
-  }
 
   useEffect(() => {
     
@@ -69,28 +58,37 @@ export default function Main() {
         setIsPageLoaded(true);
       };
 
-    function handleCardHover(event) {
+    function handleCardHover() {
       // Get the data-color attribute value from the hovered card
       let div = document.getElementsByClassName('proj-body');
       const body = document.body;
-    
+        
+        if (isBlueHovered===false && isGreenHovered===false && isPinkHovered===false) {
+            div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
+            body.style.transition = 'transform 100ms'
+            div[0].style.boxShadow = '0px 0px 60px rgba(92, 191, 249, 0.25)';
+            return
+        }
+
       // Change the body background color based on the card's color
-    //   setTimeout(() => {
-        if (isBlueHovered) {
+      setTimeout(() => {
+        if ((isBlueHovered && !isGreenHovered && !isPinkHovered) | (isBlueHovered===false && isGreenHovered===false && isPinkHovered===false)) {
           div[0].style.backgroundColor = 'rgba(92, 191, 249, 0.25)';
           body.style.transition = 'transform 100ms'
           div[0].style.boxShadow = '0px 0px 60px rgba(92, 191, 249, 0.25)';
           // div[0].style.background = 'linear-gradient(0deg, black 20%, rgba(92, 191, 249, 0.25) 100%, black 20%)';
-        } else if (isGreenHovered) {
+        } else if (isGreenHovered && !isBlueHovered && !isPinkHovered) {
           div[0].style.backgroundColor = 'rgba(125, 161, 35, 0.25)';
           div[0].style.boxShadow = '0px 0px 60px rgba(125, 161, 35, 0.25)' 
+          body.style.transition = 'transform 100ms'
     
-        } else if (isPinkHovered) {
+        } else if (isPinkHovered && !isBlueHovered && !isGreenHovered) {
           div[0].style.backgroundColor = 'rgba(127, 23, 101, 0.425)';
           div[0].style.boxShadow = '0px 0px 60px rgba(127, 23, 101, 0.25)' 
+          body.style.transition = 'transform 100ms'
     
         }
-    //   }, 100);
+      }, 100);
     }
     
     // Function to handle leave (reset background color)
@@ -112,6 +110,27 @@ export default function Main() {
   }, [isBlueHovered, isGreenHovered, isPinkHovered])
 
   
+
+  const handleBlueHover = () => {
+    setIsBlueHovered(true);
+    setIsGreenHovered(false);
+    setIsPinkHovered(false);
+  }
+
+  const handleGreenHover = () => {
+    setIsGreenHovered(true);
+    setIsPinkHovered(false);
+    setIsBlueHovered(false);
+
+  }
+
+  const handlePinkHover = () => {
+    setIsPinkHovered(true);
+    setIsBlueHovered(false);
+    setIsGreenHovered(false);
+
+  }
+
 
 
 
@@ -502,43 +521,59 @@ animations, story features and more</div>
     <div className='proj-htmlBody'>
     <div className='proj-body w-[210vh] h-[100vh] overflow-hidden'>
   <div id="proj-cards" className='proj-cards'>
-  <div className="proj-card flex flex-col" onMouseOver={handleBlueHover} data-color="blue">
+  {/* <div className='text-white text-3xl gta-only-text mb-[4vw]'>Projects</div> */}
+  <div className="proj-card flex flex-col items-center" onMouseOver={handleBlueHover} data-color="blue">
+  <div className='text-white text-3xl roboto-only-text mb-[1vw]'>Jofevn LMS Platform</div>
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset1} />
     <div className="card-faders">
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
+    </div>
+    <div className='src-links flex flex-row'>
+    <Link className='text-white text-2xl mr-[1vw]' target='_blank' href='http://jofevn-learning.vercel.app/'><Button className='ext-links bg-black mt-[2vw]'><ArrowUpRight/></Button></Link>
+    <Link className='text-white text-2xl' target='_blank' href='https://github.com/glaucc/next-learning-platform'><Button className='ext-links bg-black mt-[2vw]'><Github/></Button></Link>
     </div>
   </div>
-  <div className="proj-card" onMouseOver={handleGreenHover} data-color="green">
+  <div className="proj-card items-center" onMouseOver={handleGreenHover} data-color="green">
+  <div className='text-white text-3xl roboto-only-text mb-[1vw]'>Real-Time Messaging App</div>
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset2}/>
     <div className="card-faders">
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset2}/>
+    </div>
+    <div className='src-links flex flex-row'>
+    <Link className='text-white text-2xl mr-[1vw]' target='_blank' href='http://jofevn-message.vercel.app/'><Button className='ext-links bg-black mt-[2vw]'><ArrowUpRight/></Button></Link>
+    <Link className='text-white text-2xl' target='_blank' href='https://github.com/glaucc/messaging-app'><Button className='ext-links bg-black mt-[2vw]'><Github/></Button></Link>
     </div>
   </div>
-  <div className="proj-card" onMouseOver={handlePinkHover} data-color="brown">
+  <div className="proj-card items-center" onMouseOver={handlePinkHover} data-color="brown">
+  <div className='text-white text-3xl roboto-only-text mb-[1vw]'>Bruto Azerbaijan</div>
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset3}/>
     <div className="card-faders">
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
-      <Image className="card-fader card-image" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+      <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset3}/>
+    </div>
+    <div className='src-links flex flex-row'>
+    <Link className='text-white text-2xl mr-[1vw]' target='_blank' href='https://project-cyber-6vb3.vercel.app/'><Button className='ext-links bg-black mt-[2vw]'><ArrowUpRight/></Button></Link>
+    <Link className='text-white text-2xl' target='_blank' href='https://github.com/glaucc/project-cyber'><Button className='ext-links bg-black mt-[2vw]'><Github/></Button></Link>
     </div>
   </div>
   </div>

@@ -280,12 +280,14 @@ export default function Main() {
 
                     {!hasClicked && (
                       <div className='flex items-center first-play'>
-                      <p className="text-white ml-[-40px] w-[380px]">First Play the music</p><Disc3/><MoveRight size={32} className='mr-6 ml-5'/>
+                      <p className="text-white ml-[-40px] w-[450px]">First Play the music</p>
+                      <Disc3 className='ml-[-1.4vw]'/>
+                      <MoveRight size={32} className='ml-1'/>
                       </div>)}
                     </div>
                   <Popover>
                     <PopoverTrigger>
-                      <div>
+                      <div className='ml-4'>
                       <Button variant='outline' className='hover:bg-gray-300'>
                       <Music color='black' onClick={togglePopup} />
                       </Button>
@@ -523,7 +525,7 @@ animations, story features and more</div>
   <div id="proj-cards" className='proj-cards'>
   {/* <div className='text-white text-3xl gta-only-text mb-[4vw]'>Projects</div> */}
   <div className="proj-card flex flex-col items-center" onMouseOver={handleBlueHover} data-color="blue">
-  <div className='text-white text-3xl roboto-only-text mb-[1vw]'>Jofevn LMS Platform</div>
+  <div className='text-white text-3xl roboto-only-text mb-[1vw]'>Tacutus SEO-powered Blog</div>
     <Image className="card-front-image card-image" width={400} height={400} alt='project-image' src={asset1} />
     <div className="card-faders">
       <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
@@ -536,8 +538,8 @@ animations, story features and more</div>
       <Image className="card-fader card-image mt-[2.85vw]" width={400} height={400} alt='project-image' src={asset1}/>
     </div>
     <div className='src-links flex flex-row'>
-    <Link className='text-white text-2xl mr-[1vw]' target='_blank' href='http://jofevn-learning.vercel.app/'><Button className='ext-links bg-black mt-[2vw]'><ArrowUpRight/></Button></Link>
-    <Link className='text-white text-2xl' target='_blank' href='https://github.com/glaucc/next-learning-platform'><Button className='ext-links bg-black mt-[2vw]'><Github/></Button></Link>
+    <Link className='text-white text-2xl mr-[1vw]' target='_blank' href='http://tacutus.vercel.app/'><Button className='ext-links bg-black mt-[2vw]'><ArrowUpRight/></Button></Link>
+    <Link className='text-white text-2xl' target='_blank' href='https://github.com/glaucc'><Button className='ext-links bg-black mt-[2vw]'><Github/></Button></Link>
     </div>
   </div>
   <div className="proj-card items-center" onMouseOver={handleGreenHover} data-color="green">

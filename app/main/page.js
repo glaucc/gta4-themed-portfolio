@@ -260,27 +260,27 @@ export default function Main() {
       <div className="w-full absolute top-0 flex items-center justify-between p-4 lg:flex lg:items-center">
         <div className="flex items-center">
           {/* <img src="/path_to_your_logo/logo.png" alt="Logo" className="h-8 mr-2" /> */}
-          <nav className="flex items-center lg:flex-row lg:ml-6">
-            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Github</Link></h6>
-            <h6 className="gta-text mx-6 text-white links"><Link href='https://www.linkedin.com/in/yusif-ahmedov/'>Linkedin</Link></h6>
-            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Work</Link></h6>
-            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Projects</Link></h6>
-            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>About</Link></h6>
-            <h6 className="gta-text mx-6 text-white links"><Link href='https://github.com/glaucc'>Contact</Link></h6>
+          <nav className="lg:flex items-center flex flex-col ml-[20vw] mt-[2vw] lg:flex-row lg:ml-6">
+            <h6 className="gta-text mx-6 text-white links"><Link target='_blank' href='https://github.com/glaucc'>Github</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link target='_blank' href='https://www.linkedin.com/in/yusif-ahmedov/'>Linkedin</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link target='_blank' href='https://github.com/glaucc'>Work</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link target='_blank' href='https://github.com/glaucc'>Projects</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link target='_blank' href='https://github.com/glaucc'>About</Link></h6>
+            <h6 className="gta-text mx-6 text-white links"><Link target='_blank' href='https://github.com/glaucc'>Contact</Link></h6>
           </nav>
         </div>
       </div>
 
       {/* Music Player */}
 
-      <div className='musicPlayer flex w-[440px]'>
+      <div className='musicPlayer-lg lg:musicPlayer flex lg:w-[440px] ml-[-180vw] mb-[-100vw] md:mb-[0vw] md:ml-0'>
 
         
-                    <div className='gta-text flex flex-row items-center h-10 min-w-full firstplay-text'>
+                    <div className='gta-text flex flex-col lg:flex-row items-center mb:h-10 mr-[0vw] lg:min-w-full firstplay-text'>
 
                     {!hasClicked && (
-                      <div className='flex items-center first-play'>
-                      <p className="text-white ml-[-40px] w-[450px]">First Play the music</p>
+                      <div className='flex flex-row items-center first-play'>
+                      <p className="text-white md:ml-[-40px] md:w-[450px] w-[50vw]">First Play the music</p>
                       <Disc3 className='ml-[-1.4vw]'/>
                       <MoveRight size={32} className='ml-1'/>
                       </div>)}
@@ -289,7 +289,7 @@ export default function Main() {
                     <PopoverTrigger>
                       <div className='ml-4'>
                       <Button variant='outline' className='hover:bg-gray-300'>
-                      <Music color='black' onClick={togglePopup} />
+                      <Music className='' color='black' onClick={togglePopup} />
                       </Button>
                       </div>
                     </PopoverTrigger>
@@ -322,21 +322,21 @@ export default function Main() {
         <Progress value={progress} className="w-[20%]" />
         </>
       ) : (
-        <div className="container">
+        <div className="container mt-[160vw] lg:mt-8">
           <div className='bg-image-container'>
-          <div className="content with-background-image">
+          <div className="content with-background-image1 lg:with-background-image2 mt-[0vw] lg:mt-[5vw] mx-[-10vw]">
             {/* Your component content here */}
             <div className="intro">
               <div className="intro-texts w-[40vw]">
-                <h6 className="gta-intro-text gta-intro-text1 mx-6 ml-[4vw] links text-white cursor-pointer">Represents</h6>
-                <h6 className="gta-intro-text gta-intro-text2 mx-6 ml-[4vw] links text-white cursor-pointer">Jofevn Studios</h6>
+                <h6 className="gta-intro-text gta-intro-text1 lg:text-5xl text-4xl mx-6 ml-[10vw] lg:ml-[4vw] links text-white cursor-pointer">Represents</h6>
+                <h6 className="gta-intro-text gta-intro-text2 lg:text-5xl text-4xl mx-6 ml-[10vw] lg:ml-[4vw] links text-white cursor-pointer">Jofevn Studios</h6>
               </div>
 
               <div className="nico">
                 {imageState === 2 ? (
-                  <Image className="figureImg2" width={1000} height={1000} src={figure2} alt="Jofevn" />
+                  <Image className="figureImg2lg md:figureImg2" width={1000} height={1000} src={figure2} alt="Jofevn" />
                 ) : (
-                  <Image className="figureImg1" width={700} height={700} src={figure1} alt="Jofevn" />
+                  <Image className="figureImg1lg md:figureImg1 " width={700} height={700} src={figure1} alt="Jofevn" />
                 )}
               </div>
             </div>
@@ -366,15 +366,15 @@ export default function Main() {
 
     {/* Introfuction */}
       
-      <div className='introduction-main flex flex-row mt-[200px]'>
+      <div className='introduction-main flex flex-col md:flex-row mt-[200px] mb-[250vw] lg:mb-[-5vw]'>
         
-        <div className='int-text-sec mr-[10vw]  flex flex-col'>
-            <div className='int-header gta-text links'>Hello There👋</div>
-            <div className='gta-small-text int-text1 my-8 max-w-2xl links-horizontal'>Welcome to my digital universe, where pixels come alive and ideas take shape! I am the architect of imagination, the weaver of digital dreams, and the creator of captivating experiences. With a touch of creativity and a sprinkle of innovation, I craft digital wonders that transcend the ordinary.</div>
+        <div className='int-text-sec lg:mr-[10vw] flex flex-col'>
+            <div className='md:text-5xl text-4xl gta-text links ml-[18vw] lg:ml-[0vw]'>Hello There👋</div>
+            <div className='gta-small-text int-text1 my-8 max-w-2xl w-[90%] lg:w-[100%] links-horizontal'>Welcome to my digital universe, where pixels come alive and ideas take shape! I am the architect of imagination, the weaver of digital dreams, and the creator of captivating experiences. With a touch of creativity and a sprinkle of innovation, I craft digital wonders that transcend the ordinary.</div>
             <div className='gta-small-text int-text2 my-8 max-w-2xl links-horizontal'>Join me on a journey through the symphony of code and design, where each project is a story waiting to be told, and every line of code is a brushstroke on the canvas of the digital realm. Together, let's explore the boundless possibilities and unlock the magic of the digital world.</div>
           </div>
         <div className='int-img'>
-        <Image className="figureImg3 ml-[240px]" width={500} height={500} src={yo_jj} alt="Jofevn" />
+        <Image className="figureImg3 lg:ml-[240px]" width={500} height={500} src={yo_jj} alt="Jofevn" />
         </div>
       
       </div>
@@ -386,7 +386,7 @@ export default function Main() {
 
 
 
-      <div className='skills-main mb-[8vw]'>
+      <div className='skills-main lg:mb-[8vw]'>
                   
       {isIconClicked ? 
 

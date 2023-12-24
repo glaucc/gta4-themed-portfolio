@@ -26,7 +26,7 @@
   
 .container  {
     height: 100%;
-    margin-top: 8vw;
+    /* margin-top: 8vw; */
     /* max-width: 70%; */
     position: relative;
     /* overflow: hidden; */
@@ -58,7 +58,6 @@
 
   .gta-intro-text {
     font-family: 'PricedownBL', sans-serif;
-    font-size: 3rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -89,17 +88,25 @@
     margin-top: 4rem;
   }
 
-  .with-background-image {
+  .with-background-image1 {
     /* other styles */
     background: url('/assets/img/gta4-bg.jpg') repeat 20% 80%;
-    animation: bgmove 10s infinite linear;
+    animation: bgmove1 10s infinite linear;
     opacity: 1;
     transition: opacity 0.5s;
     height: 90vh;
   }
 
-  
-  @keyframes bgmove {
+  .with-background-image2 {
+    /* other styles */
+    background: url('/assets/img/gta4-bg.jpg') repeat 20% 80%;
+    animation: bgmove1 20s infinite linear;
+    opacity: 1;
+    transition: opacity 0.5s;
+    height: 100vh;
+  }
+
+  @keyframes bgmove1 {
     0% {
       background-position: 20% 50%;
       /* transform: scale(1,1); Start from top left */
@@ -117,33 +124,72 @@
     overflow:hidden;
 }
 
-.figureImg1 {
+.figureImg1lg {
     position: relative;
     bottom: -7vh;
     left: 15%;
-    animation: movenico 40s linear infinite;
+    animation: movenico-lg 40s linear infinite;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.figureImg1 {
+  position: relative;
+  bottom: -37vh;
+  left: 15%;
+  animation: movenico 30s linear infinite;
+  opacity: 1;
+  transition: opacity 0.5s;
+  scale: 2;
+}
+
+
+.figureImg2lg {
+    position: relative;
+    bottom: 10vh;
+    left: 15%;
+    animation: movenico2-lg 40s linear infinite;
     opacity: 1;
     transition: opacity 0.5s;
 }
 
 .figureImg2 {
-    position: relative;
-    bottom: 10vh;
-    left: 15%;
-    animation: movenico2 40s linear infinite;
-    opacity: 1;
-    transition: opacity 0.5s;
+  position: relative;
+  bottom: 10vh;
+  left: 15%;
+  animation: movenico2 30s linear infinite;
+  opacity: 1;
+  transition: opacity 0.5s;
+  scale: 2.8;
+}
+
+.figureImg3 {
+  scale: 0.8;
 }
 
 @keyframes movenico {
     0% {
-        bottom: -7vh;
+        bottom: -50vh;
+        left: -5%;
+        transform: scale(1,1);
+    }
+    100% {
+      /* Set the final position for nico's animation */
+      bottom: -25vh;
+      left: -20%;
+      transform: scale(1.2,1.2);
+    }
+  }
+
+  @keyframes movenico-lg {
+    0% {
+        bottom: 0vh;
         left: 15%;
         transform: scale(1,1);
     }
     100% {
       /* Set the final position for nico's animation */
-      bottom: 10vh;
+      bottom: 20vh;
       left: -5%;
       transform: scale(1.2,1.2);
     }
@@ -151,7 +197,21 @@
 
   @keyframes movenico2 {
     0% {
-        bottom: 10vh;
+        bottom: -40vh;
+        left: -20%;
+        transform: scale(1,1);
+    }
+    100% {
+      /* Set the final position for nico's animation */
+      bottom: -15vh;
+      left: -35%;
+      transform: scale(1.2,1.2);
+    }
+  }
+
+  @keyframes movenico2-lg {
+    0% {
+        bottom: 32vh;
         left: 15%;
         transform: scale(1,1);
     }
@@ -167,10 +227,17 @@
   min-height: 90vh;
 }
 
-.musicPlayer {
+.musicPlayer-lg {
   position: fixed;
   left: 68%;
   bottom: 93%;
+  z-index: 1;
+}
+
+.musicPlayer {
+  position:fixed;
+  left: 68%;
+  bottom: 96%;
   z-index: 1;
 }
 

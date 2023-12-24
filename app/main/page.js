@@ -366,7 +366,7 @@ export default function Main() {
 
     {/* Introfuction */}
       
-      <div className='introduction-main flex flex-col md:flex-row mt-[200px] mb-[250vw] lg:mb-[-5vw]'>
+      <div className='introduction-main flex flex-col md:flex-row mt-[200px] mb-[150vw] lg:mb-[-5vw]'>
         
         <div className='int-text-sec lg:mr-[10vw] flex flex-col'>
             <div className='md:text-5xl text-4xl gta-text links ml-[18vw] lg:ml-[0vw]'>Hello There👋</div>
@@ -443,10 +443,10 @@ export default function Main() {
 
           <div className='gta-text exp-text links'>My <span className='lineargd-exp-text'>Experience</span></div>
 
-            <div className='exp-cards'>
+            <div className='lg:exp-cards gap-8 flex flex-col mr-[-50vw] w-[20vh] h-[150vh]'>
 
             
-            <div className='exp-card'>
+            <div className='exp-card md:mt-[5vw] md:w-[650px] w-[100vw]'>
               <div className='text-white text-3xl roboto-only-text'>Front End Developer</div>
               <div className='mb-[0.7vw] roboto-only-text'>
                 <div className='text-white text-xl'>Your Company</div>
@@ -462,7 +462,7 @@ export default function Main() {
             </div>
 
 
-            <div className='exp-card exp-card-right'>
+            <div className='exp-card exp-card-right md:w-[650px] w-[100vw]'>
             <div className='text-white text-3xl roboto-only-text'>Front End Developer</div>
               <div className='mb-[0.7vw] roboto-only-text'>
                 <div className='text-white text-xl'>Sferex Agency</div>
@@ -477,7 +477,7 @@ export default function Main() {
             </div>
             
             
-            <div className='exp-card'>
+            <div className='exp-card md:w-[650px] w-[100vw]'>
             <div className='text-white text-3xl roboto-only-text'>Front End Developer</div>
               <div className='mb-[0.7vw] roboto-only-text'>
                 <div className='text-white text-xl'>Bruto Azerbaijan</div>
@@ -493,7 +493,7 @@ projects based on customer feedbacks</div>
             </div>
             
             
-            <div className='exp-card exp-card-right'>
+            <div className='exp-card exp-card-right md:w-[650px] w-[100vw] md:mb-[20vw]'>
             <div className='text-white text-3xl roboto-only-text'>Web Technical Assistant</div>
               <div className='mb-[0.7vw] roboto-only-text'>
                 <div className='text-white text-xl'>Caspian One</div>

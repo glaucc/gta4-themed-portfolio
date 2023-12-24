@@ -94,7 +94,6 @@
     animation: bgmove1 10s infinite linear;
     opacity: 1;
     transition: opacity 0.5s;
-    height: 90vh;
   }
 
   .with-background-image2 {
@@ -146,7 +145,7 @@
 
 .figureImg2lg {
     position: relative;
-    bottom: 10vh;
+    bottom: 0vh;
     left: 15%;
     animation: movenico2-lg 40s linear infinite;
     opacity: 1;
@@ -155,7 +154,7 @@
 
 .figureImg2 {
   position: relative;
-  bottom: 10vh;
+  bottom: 0vh;
   left: 15%;
   animation: movenico2 30s linear infinite;
   opacity: 1;
@@ -197,7 +196,7 @@
 
   @keyframes movenico2 {
     0% {
-        bottom: -40vh;
+        bottom: -12vh;
         left: -20%;
         transform: scale(1,1);
     }
@@ -211,13 +210,13 @@
 
   @keyframes movenico2-lg {
     0% {
-        bottom: 32vh;
+        bottom: 25%;
         left: 15%;
         transform: scale(1,1);
     }
     100% {
       /* Set the final position for nico's animation */
-      bottom: 22vh;
+      bottom: -10vh;
       left: -25%;
       transform: scale(1.2,1.2);
     }

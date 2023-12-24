@@ -322,14 +322,14 @@ export default function Main() {
         <Progress value={progress} className="w-[20%]" />
         </>
       ) : (
-        <div className="container mt-[160vw] lg:mt-8">
+        <div className="container mt-[160vw] lg:mt-8 mb-[-150vw] lg:mb-[0vw]">
           <div className='bg-image-container'>
-          <div className="content with-background-image1 lg:with-background-image2 mt-[0vw] lg:mt-[5vw] mx-[-10vw]">
+          <div className="content with-background-image1 h-[50vw] md:h-[90vh] lg:with-background-image2 mt-[0vw] lg:mt-[5vw] mx-[-10vw]">
             {/* Your component content here */}
             <div className="intro">
               <div className="intro-texts w-[40vw]">
-                <h6 className="gta-intro-text gta-intro-text1 lg:text-5xl text-4xl mx-6 ml-[10vw] lg:ml-[4vw] links text-white cursor-pointer">Represents</h6>
-                <h6 className="gta-intro-text gta-intro-text2 lg:text-5xl text-4xl mx-6 ml-[10vw] lg:ml-[4vw] links text-white cursor-pointer">Jofevn Studios</h6>
+                <h6 className="gta-intro-text gta-intro-text1 mt-[-7vw] lg:mt-[0vw] lg:text-5xl text-4xl mx-6 ml-[10vw] lg:ml-[4vw] links text-white cursor-pointer">Represents</h6>
+                <h6 className="gta-intro-text gta-intro-text2 mt-[-1vw] lg:mt-[0vw] lg:text-5xl text-4xl mx-6 ml-[10vw] lg:ml-[4vw] links text-white cursor-pointer">Jofevn Studios</h6>
               </div>
 
               <div className="nico">

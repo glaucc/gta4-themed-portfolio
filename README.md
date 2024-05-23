@@ -1,3 +1,5 @@
+Made with love and passion.
+
 Personal Portfolio that's built with:
 - Next.js
 - React.js
